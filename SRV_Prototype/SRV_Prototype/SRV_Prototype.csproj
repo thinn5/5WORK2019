@@ -97,6 +97,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SRV_CompetenciesList.xaml.cs">
+      <DependentUpon>SRV_CompetenciesList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SRV_Login.xaml.cs">
       <DependentUpon>SRV_Login.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="SRV_CompetenciesList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SRV_Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
