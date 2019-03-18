@@ -1,0 +1,8 @@
+{
+    "name": "SRV_JS_Cordova",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "angular": "^1.7.8"
+    }
+}
