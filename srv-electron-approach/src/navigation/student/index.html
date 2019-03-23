@@ -85,13 +85,76 @@
 		</div>
 		<!-- YES, i am disgusted by this as well -->
 		<p />
-		<div class="row" style="height: 500px; background:white;">
-			<div class="col-1"><p /></div>
-			<div class="col-3"><h1>Subject</h1></div>
-			<div class="col-2"><h1>Result</h1></div>
-			<div class="col-2"><h2><span style="background:red; color:red;">< ></span><span><i>To Do</i></span></h2></div>
-			<div class="col-2"><h2><span style="background:orange; color:orange;">< ></span><span><i>In Progress</i></span></h2></div>
-			<div class="col-2"><h2><span style="background:green; color:green;">< ></span><span><i>Done</i></span></h2></div>
+		<div class="row" style="min-height: 500px; background:white;">
+		<h1 class="row col-12 justify-content-center">Summary of the Qualification</h1>
+<div class="accordion" id="accordionExample">
+  <!--<div class="card">-->
+    <!--<div class="card-header" id="headingOne">-->
+      <div class="ml-5">
+	  <div class="row mb-4">
+	  <div class="row justify-content-left col-3">
+        <button class="btn btn-outline-danger" style="color: red;" type="button" data-toggle="collapse" data-target="#collapseToDO" aria-expanded="true" aria-controls="collapseOne">
+			<h3>To Do</h3>
+        </button>
+		</div>
+		<h5 class="col-7 align-self-end">A list of subject that need to be completed to achieve the qualification</h5>
+		<p class="col-2 align-self-end display-4" style="color:red;">50%</p>
+   <!-- </div>-->
+
+    <div id="collapseToDO" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body" style="color:red;">
+        <p>3PRB - Apply basic programming concepts</p>
+		<p>4C#B - C# Basics</p>
+		<p>4C#M - C# Mobile</p>
+		<p>4c#W - C# Web</p>
+		<p>4QWERTY - Something for something</p>
+      </div>
+	  </div>
+    </div>
+  <!--</div>-->
+<div class="row mb-4">
+	  <div class="row justify-content-left col-3">
+        <button class="btn btn-outline-warning" style="color: orange;" type="button" data-toggle="collapse" data-target="#collapseInProgress" aria-expanded="true" aria-controls="collapseOne">
+			<h3>Doing</h3>
+        </button>
+		</div>
+		<h5 class="col-7 align-self-end">Subjects currently being undertaken</h5>
+		<p class="col-2 align-self-end display-4" style="color:orange;">50%</p>
+   <!-- </div>-->
+
+    <div id="collapseInProgress" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body" style="color:orange;">
+        <p>3PRB - Apply basic programming concepts</p>
+		<p>4C#B - C# Basics</p>
+		<p>4C#M - C# Mobile</p>
+		<p>4c#W - C# Web</p>
+		<p>4QWERTY - Something for something</p>
+      </div>
+	  </div>
+    </div>
+	<div class="row mb-4">
+	  <div class="row justify-content-left col-3">
+        <button class="btn btn-outline-success" style="color: green;" type="button" data-toggle="collapse" data-target="#collapseDone" aria-expanded="true" aria-controls="collapseOne">
+			<h3>Done</h3>
+        </button>
+		</div>
+		<h5 class="col-7 align-self-end">Subjects completed</h5>
+		<p class="col-2 align-self-end display-4" style="color:green;">50%</p>
+   <!-- </div>-->
+
+    <div id="collapseDone" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body" style="color:green;">
+        <p>3PRB - Apply basic programming concepts</p>
+		<p>4C#B - C# Basics</p>
+		<p>4C#M - C# Mobile</p>
+		<p>4c#W - C# Web</p>
+		<p>4QWERTY - Something for something</p>
+      </div>
+	  </div>
+    </div>
+	
+  </div>
+</div>
 		</div>
 		
 		<div class="form-group">
