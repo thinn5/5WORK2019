@@ -37,6 +37,12 @@
 .icon-3x {
 	font-size: 48px;
 }
+.icon-4x {
+	font-size: 72px;
+}
+.icon-5x {
+	font-size: 108px;
+}
 
 .icon-bordered {
 	// padding: 5px;
