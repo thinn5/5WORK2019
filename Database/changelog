@@ -1,0 +1,8 @@
+Changes:
+    - renamed qualification.TPCode to qualification.NationalQualCode
+    - added qualification.TafeQualCode
+
+New: 
+    - added qualification.student table
+    - added qualification.student_grade table
+    - added qualification.student_studyplan table
