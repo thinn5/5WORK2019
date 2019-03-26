@@ -21,7 +21,6 @@ a.custom-card:hover {
 .card-metro-menu {
   min-width: 164px;
   margin-right: 9px;
-  cursor: default;
 }
 
 .card-metro-menu:hover {
