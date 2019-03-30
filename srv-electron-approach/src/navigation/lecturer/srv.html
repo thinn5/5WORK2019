@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="assets/img/favicon.ico">
-    <title>Student SRV - TAFESA</title>
+    <title>Lecturer SRV - TAFESA</title>
     <script src="../../assets/js/jquery.min.js"></script>
     <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../assets/js/plugins/loaders/blockui.min.js"></script>
@@ -34,6 +34,7 @@
     <link href="../../assets/css/colors.min.css" rel="stylesheet" type="text/css">
     <link href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../assets/css/myStyle.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -42,294 +43,496 @@
             <div class="content-wrapper">
                 <div class="content">
                     <div class="container-fluid">
-                        <div class="panel-group">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header tafesaContent text-white">
-                                        <div class="header-elements">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <img class="mb-3 img-fluid" src="../../assets/img/logo_TAFESA.png"
-                                                        alt="TAFESA">
-                                                </div>
-                                                <div class="col">
-                                                    <div class="d-flex flex-column">
-                                                        <div class="p-1">
-                                                            <h2 class="text-right">Chuck Berry</h2>
-                                                            <h6 class="text-right font-size-sm">004275863</h6>
-                                                        </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header tafesaContent text-white">
+                                    <div class="header-elements">
+                                        <div class="row">
+                                            <div class="col">
+                                                <img class="mb-3 img-fluid" src="../../assets/img/logo_TAFESA.png"
+                                                    alt="TAFESA">
+                                            </div>
+                                            <div class="col">
+                                                <div class="d-flex flex-column">
+                                                    <div class="p-1">
+                                                        <h2 class="text-right">Chuck Berry</h2>
+                                                        <h6 class="text-right font-size-sm">004275863</h6>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <br />
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="mb-0 font-weight-semibold">
+                                                SRV
+                                            </h5>
+                                            <span class="d-block">The SRV is at your service</span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="text-right">
+                                                <button type="button" class="btn btn-danger" id="logout"><i
+                                                        class="icon-exit3 mr-2"></i> Logout</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <br />
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h5 class="mb-0 font-weight-semibold">
-                                                    SRV
-                                                </h5>
-                                                <span class="d-block">The SRV is at your service</span>
-                                            </div>
-                                            <div class="col">
-                                                <div class="text-right">
-                                                    <button type="button" class="btn btn-danger" id="logout"><i
-                                                            class="icon-exit3 mr-2"></i> Logout</button>
+                                    <div class="row justify-content-center">
+                                        <a href="index.html" class="custom-card">
+                                            <div
+                                                class="card card-body justify-content-center text-center metroUI-yellow card-metro-menu">
+                                                <div>
+                                                    <i
+                                                        class="icon-home2  icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
+                                                    <h5 class="card-title text-white">Dashboard</h5>
                                                 </div>
                                             </div>
+                                        </a>
+                                        <a href="#" class="custom-card">
+                                            <div
+                                                class="card card-body justify-content-center text-center metroUI-teal card-metro-menu">
+                                                <div>
+                                                    <i
+                                                        class="icon-equalizer  icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
+                                                    <h5 class="card-title text-white">SRV</h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="custom-card">
+                                            <div
+                                                class="card card-body justify-content-center text-center metroUI-dark-red card-metro-menu">
+                                                <div>
+                                                    <i
+                                                        class="icon-magazine icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
+                                                    <h5 class="card-title text-white">Service 2</h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="custom-card">
+                                            <div
+                                                class="card card-body justify-content-center text-center metroUI-dark-orange card-metro-menu">
+                                                <div>
+                                                    <i
+                                                        class="icon-design icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
+                                                    <h5 class="card-title text-white">Service 3</h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="custom-card">
+                                            <div
+                                                class="card card-body justify-content-center text-center metroUI-purple card-metro-menu">
+                                                <div>
+                                                    <i
+                                                        class="icon-presentation icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
+                                                    <h5 class="card-title text-white">Service 4</h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="custom-card">
+                                            <div
+                                                class="card card-body justify-content-center text-center metroUI-magenta card-metro-menu">
+                                                <div>
+                                                    <i
+                                                        class="icon-library2 icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
+                                                    <h5 class="card-title text-white">Service 5</h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="custom-card">
+                                            <div
+                                                class="card card-body justify-content-center text-center metroUI-green card-metro-menu">
+                                                <div>
+                                                    <i
+                                                        class="icon-graduation2 icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
+                                                    <h5 class="card-title text-white">Service 6</h5>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputQualification">Select
+                                                Qualification:</label>
+                                            <select id="inputQualification" class="form-control">
+                                                <option selected>Choose...</option>
+                                                <option>Diploma of Software Development</option>
+                                                <option>Diploma of Website Development</option>
+                                            </select>
                                         </div>
-                                        <br />
-
-                                        <div class="row justify-content-center">
-                                            <a href="index.html" class="custom-card">
-                                                <div
-                                                    class="card card-body justify-content-center text-center metroUI-yellow card-metro-menu">
-                                                    <div>
-                                                        <i
-                                                            class="icon-home2  icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
-                                                        <h5 class="card-title text-white">Dashboard</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="custom-card">
-                                                <div
-                                                    class="card card-body justify-content-center text-center metroUI-teal card-metro-menu">
-                                                    <div>
-                                                        <i
-                                                            class="icon-equalizer  icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
-                                                        <h5 class="card-title text-white">SRV</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="custom-card">
-                                                <div
-                                                    class="card card-body justify-content-center text-center metroUI-dark-red card-metro-menu">
-                                                    <div>
-                                                        <i
-                                                            class="icon-magazine icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
-                                                        <h5 class="card-title text-white">Service 2</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="custom-card">
-                                                <div
-                                                    class="card card-body justify-content-center text-center metroUI-dark-orange card-metro-menu">
-                                                    <div>
-                                                        <i
-                                                            class="icon-design icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
-                                                        <h5 class="card-title text-white">Service 3</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="custom-card">
-                                                <div
-                                                    class="card card-body justify-content-center text-center metroUI-purple card-metro-menu">
-                                                    <div>
-                                                        <i
-                                                            class="icon-presentation icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
-                                                        <h5 class="card-title text-white">Service 4</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="custom-card">
-                                                <div
-                                                    class="card card-body justify-content-center text-center metroUI-magenta card-metro-menu">
-                                                    <div>
-                                                        <i
-                                                            class="icon-library2 icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
-                                                        <h5 class="card-title text-white">Service 5</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="custom-card">
-                                                <div
-                                                    class="card card-body justify-content-center text-center metroUI-green card-metro-menu">
-                                                    <div>
-                                                        <i
-                                                            class="icon-graduation2 icon-2x text-light border-light border-3 rounded-round p-3 mb-3"></i>
-                                                        <h5 class="card-title text-white">Service 6</h5>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="form-group col-md-12">
-                                                <label for="inputQualification">Select
-                                                    Qualification:</label>
-                                                <select id="inputQualification" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <option>Diploma of Software Development</option>
-                                                    <option>Diploma of Website Development</option>
-                                                </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12"><label
+                                                for="inputQualification">Select Student:</label><select
+                                                id="inputQualification" class="form-control">
+                                                <option selected>Choose...</option>
+                                                <option>00124578 - Elvis Presley</option>
+                                                <option>00124578 - Bruce Springsteen</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="progress">Progress:</label>
+                                            <div class="progress" style="height: 36px;">
+                                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                                    role="progressbar" style="width: 30%" aria-valuenow="30"
+                                                    aria-valuemin="0" aria-valuemax="100">30%</div>
+                                                <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated"
+                                                    role="progressbar" style="width: 35%" aria-valuenow="35"
+                                                    aria-valuemin="0" aria-valuemax="100">35%</div>
+                                                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated"
+                                                    role="progressbar" style="width: 25%" aria-valuenow="25"
+                                                    aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                                                    role="progressbar" style="width: 10%" aria-valuenow="10"
+                                                    aria-valuemin="0" aria-valuemax="100">10%</div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-12">
-                                                <label for="inputQualification">Select
-                                                    Student:</label>
-                                                <select id="inputQualification" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <option>00124578 - Elvis Presley</option>
-                                                    <option>00124578 - Bruce Springsteen</option>
-                                                </select>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="legend">Legend:</label>
+                                            <span class="badge badge-success">Done</span>
+                                            <span class="badge badge-secondary">Doing</span>
+                                            <span class="badge badge-info">Pending</span>
+                                            <span class="badge badge-danger">Failed</span>
                                         </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-12">
-                                                <div class="card">
-                                                    <div class="card-header header-elements-inline">
-                                                        <h5 class="card-title">Competencies</h5>
-                                                        <div class="header-elements">
-                                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <div class="card">
+                                                <div class="card-header header-elements-inline">
+                                                    <h5 class="card-title">Courses and Elements</h5>
+                                                    <div class="header-elements">
                                                     </div>
-                                                    <div class="card-body">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-                                                        varius dolor turpis, ac ultricies nisi feugiat ac. Pellentesque
-                                                        leo nisi, malesuada id luctus sed, accumsan id neque.
-                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                                                    varius dolor turpis, ac ultricies nisi feugiat ac. Pellentesque
+                                                    leo nisi, malesuada id luctus sed, accumsan id neque.
+                                                </div>
+                                                <div class="container-fluid">
                                                     <table
-                                                        class="table datatable-responsive dataTable display compact nowrap">
-                                                        <thead>
+                                                        class="table dataTable datatable-responsive-tafesa-courses-competencies collapsed display compact nowrap table-striped table-hover">
+                                                        <caption>List of Courses and its Elements</caption>
+                                                        <thead class="thead-dark">
                                                             <tr>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Career</th>
-                                                                <th>DOB</th>
+                                                                <th>Name</th>
+                                                                <th>Nominal Hours</th>
+                                                                <th>Subject Code</th>
+                                                                <th>National Code</th>
                                                                 <th>Status</th>
-                                                                <th>Salary</th>
+                                                                <th>Type</th>
+                                                                <th class="mobile-p">Elements</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td>Marth</td>
-                                                                <td>Enright</td>
-                                                                <td>Traffic Court Referee</td>
-                                                                <td>22 Jun 1989</td>
-                                                                <td><span class="badge badge-success">Active</span></td>
-                                                                <td class="text-right">$85,600</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Jackelyn</td>
-                                                                <td>Weible</td>
-                                                                <td>Airline Transport Pilot</td>
-                                                                <td>3 Oct 1992</td>
-                                                                <td><span class="badge badge-secondary">Inactive</span>
+                                                                <td>Apply advanced object-oriented language skills</td>
+                                                                <td>80</td>
+                                                                <td>TAADG</td>
+                                                                <td>ICTPRG501</td>
+                                                                <td><span class="badge badge-success">Done</span></td>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
                                                                 </td>
-                                                                <td class="text-right">$106,450</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Aura</td>
-                                                                <td>Hard</td>
-                                                                <td>Business Services Sales Representative</td>
-                                                                <td>19 Apr 1999</td>
-                                                                <td><span class="badge badge-danger">Suspended</span>
+                                                                <td>Apply advanced programming skills in another
+                                                                    language
                                                                 </td>
-                                                                <td class="text-right">$237,500</td>
+                                                                <td>80</td>
+                                                                <td>TAADN</td>
+                                                                <td>ICTPRG523</td>
+                                                                <td><span class="badge badge-secondary">Doing</span>
+                                                                </td>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Nathalie</td>
-                                                                <td>Pretty</td>
-                                                                <td>Drywall Stripper</td>
-                                                                <td>13 Dec 2001</td>
+                                                                <td>Apply intermediate object-oriented language skills
+                                                                </td>
+                                                                <td>60</td>
+                                                                <td>TAADP</td>
+                                                                <td>ICTPRG527</td>
+                                                                <td><span class="badge badge-danger">Failed</span>
+                                                                </td>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Apply testing techniques for software development
+                                                                </td>
+                                                                <td>40</td>
+                                                                <td>TAADR</td>
+                                                                <td>ICTPRG529</td>
                                                                 <td><span class="badge badge-info">Pending</span></td>
-                                                                <td class="text-right">$198,500</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Sharan</td>
-                                                                <td>Leland</td>
-                                                                <td>Aviation Tactical Readiness Officer</td>
-                                                                <td>30 Dec 2002</td>
-                                                                <td><span class="badge badge-secondary">Inactive</span>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
                                                                 </td>
-                                                                <td class="text-right">$470,600</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Maxine</td>
-                                                                <td>Woldt</td>
-                                                                <td>Business Services Sales
-                                                                    Representative</td>
-                                                                <td>17 Oct 1997</td>
+                                                                <td>Contribute to copyright, ethics and privacy in an
+                                                                    ICT
+                                                                    environment</td>
+                                                                <td>40</td>
+                                                                <td>TAABL</td>
+                                                                <td>ICTICT418</td>
+                                                                <td><span class="badge badge-success">Done</span></td>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Debug and monitor applications</td>
+                                                                <td>40</td>
+                                                                <td>TAADK</td>
+                                                                <td>ICTPRG503</td>
                                                                 <td><span class="badge badge-info">Pending</span></td>
-                                                                <td class="text-right">$90,560</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Sylvia</td>
-                                                                <td>Mcgaughy</td>
-                                                                <td>Hemodialysis Technician</td>
-                                                                <td>11 Nov 1993</td>
-                                                                <td><span class="badge badge-danger">Suspended</span>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
                                                                 </td>
-                                                                <td class="text-right">$103,600</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Lizzee</td>
-                                                                <td>Goodlow</td>
-                                                                <td>Technical Services Librarian</td>
-                                                                <td>1 Nov 1999</td>
-                                                                <td><span class="badge badge-danger">Suspended</span>
+                                                                <td>Deploy an application to a production environment
                                                                 </td>
-                                                                <td class="text-right">$205,500</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Kennedy</td>
-                                                                <td>Haley</td>
-                                                                <td>Senior Marketing Designer</td>
-                                                                <td>18 Dec 1998</td>
-                                                                <td><span class="badge badge-success">Active</span></td>
-                                                                <td class="text-right">$137,500</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Chantal</td>
-                                                                <td>Nailor</td>
-                                                                <td>Technical Services Librarian</td>
-                                                                <td>10 Jan 1990</td>
-                                                                <td><span class="badge badge-secondary">Inactive</span>
+                                                                <td>40</td>
+                                                                <td>TAADL</td>
+                                                                <td>ICTPRG504</td>
+                                                                <td><span class="badge badge-secondary">Doing</span>
                                                                 </td>
-                                                                <td class="text-right">$372,000</td>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Delma</td>
-                                                                <td>Bonds</td>
-                                                                <td>Lead Brand Manager</td>
-                                                                <td>21 Dec 2001</td>
+                                                                <td>Manage a project using software management tools
+                                                                </td>
+                                                                <td>60</td>
+                                                                <td>TAADH</td>
+                                                                <td>ICTPRG503</td>
+                                                                <td><span class="badge badge-secondary">Doing</span>
+                                                                </td>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Debug and monitor applications</td>
+                                                                <td>40</td>
+                                                                <td>TAADK</td>
+                                                                <td>ICTPRG502</td>
+                                                                <td><span class="badge badge-danger">Failed</span></td>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Validate an application design against
+                                                                    specifications
+                                                                </td>
+                                                                <td>40</td>
+                                                                <td>TAADM</td>
+                                                                <td>ICTPRG520</td>
                                                                 <td><span class="badge badge-info">Pending</span></td>
-                                                                <td class="text-right">$162,700</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Roland</td>
-                                                                <td>Salmos</td>
-                                                                <td>Senior Program Developer</td>
-                                                                <td>5 Jun 2001</td>
-                                                                <td><span class="badge badge-secondary">Inactive</span>
+                                                                <td>Core</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
                                                                 </td>
-                                                                <td class="text-right">$433,060</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Coy</td>
-                                                                <td>Wollard</td>
-                                                                <td>Customer Service Operator</td>
-                                                                <td>12 Oct 2002</td>
-                                                                <td><span class="badge badge-success">Active</span></td>
-                                                                <td class="text-right">$86,000</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Maxwell</td>
-                                                                <td>Maben</td>
-                                                                <td>Regional Representative</td>
-                                                                <td>25 Feb 1998</td>
-                                                                <td><span class="badge badge-danger">Suspended</span>
+                                                                <td>Build advanced user interface</td>
+                                                                <td>60</td>
+                                                                <td>TAAHY</td>
+                                                                <td>ICTPRG505</td>
+                                                                <td><span class="badge badge-success">Done</span></td>
+                                                                <td>Elective</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
                                                                 </td>
-                                                                <td class="text-right">$130,500</td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Cicely</td>
-                                                                <td>Sigler</td>
-                                                                <td>Senior Research Officer</td>
-                                                                <td>15 Mar 1994</td>
+                                                                <td>Create cloud computing services</td>
+                                                                <td>60</td>
+                                                                <td>TAAKA</td>
+                                                                <td>ICTPRG604</td>
                                                                 <td><span class="badge badge-info">Pending</span></td>
-                                                                <td class="text-right">$159,000</td>
+                                                                <td>Elective</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Design a database</td>
+                                                                <td>50</td>
+                                                                <td>TAAHC</td>
+                                                                <td>ICTDBS502</td>
+                                                                <td><span class="badge badge-info">Pending</span></td>
+                                                                <td>Elective</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Design application architecture</td>
+                                                                <td>40</td>
+                                                                <td>TAAHZ</td>
+                                                                <td>ICTPRG506</td>
+                                                                <td><span class="badge badge-success">Done</span></td>
+                                                                <td>Elective</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Develop technical requirements for business
+                                                                    solutions
+                                                                </td>
+                                                                <td>30</td>
+                                                                <td>TAAKL</td>
+                                                                <td>ICTSAD505</td>
+                                                                <td><span class="badge badge-info">Pending</span></td>
+                                                                <td>Elective</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Plan and direct complex ICT projects</td>
+                                                                <td>80</td>
+                                                                <td>TAACT</td>
+                                                                <td>ICTPMG609</td>
+                                                                <td><span class="badge badge-info">Pending</span></td>
+                                                                <td>Elective</td>
+                                                                <td>
+                                                                    <ol>
+                                                                        <li>Develop client-server application</li>
+                                                                        <li>Develop graphical user interface (GUI)</li>
+                                                                        <li>Build applications</li>
+                                                                        <li>Debug code</li>
+                                                                        <li>Test application</li>
+                                                                        <li>Document system</li>
+                                                                    </ol>
+                                                                </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -343,6 +546,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </body>
 
 </html>
