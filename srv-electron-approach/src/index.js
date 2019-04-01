@@ -1,4 +1,5 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
+const shell = require('electron').shell
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -20,7 +21,7 @@ const createWindow = () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -29,6 +30,48 @@ const createWindow = () => {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
+  var menu = Menu.buildFromTemplate([
+    {
+      label: 'Menu',
+      submenu: [
+        { label: 'Item menu 1' },
+        { label: 'Item menu 2' },
+        { type: 'separator' },
+        {
+          label: 'Exit',
+          click() {
+            app.quit()
+          }
+        }
+      ]
+    },
+    {
+      label: 'Info',
+      submenu: [
+        {
+          label: 'Source Code',
+          click() {
+            shell.openExternal('https://github.com/thinn5/5WORK2019')
+          }
+        },
+        { type: 'separator' },
+        { label: 'About us',
+          click() {
+            const modalPath = (`file://${__dirname}/about-us.html`)
+            let win = new BrowserWindow({ frame: true, alwaysOnTop: true, width: 981, height: 369 })
+            win.setMenu(null)
+            win.setResizable(false)
+            win.on('close', function () { win = null })
+            win.loadURL(modalPath)
+            win.show()
+          }
+        }
+      ]
+    }
+  ])
+  Menu.setApplicationMenu(menu);
+
 };
 
 // This method will be called when Electron has finished
