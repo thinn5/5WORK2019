@@ -1,13 +1,24 @@
+'use strict';
+var crypto = require('crypto');
+
 const controller = {};
+
+const TABLE = 'users';
+const FIELD_ID = 'id';
+const LIST = 'SELECT * FROM ' + TABLE;
+const INSERT = 'INSERT INTO ' + TABLE + ' SET ?';
+const LIST_BY_ID = 'SELECT * FROM ' + TABLE + ' WHERE ' + FIELD_ID + ' = ?';
+const UPDATE = 'UPDATE ' + TABLE + ' SET ? WHERE ' + FIELD_ID + ' = ?';
+const DELETE = 'DELETE FROM ' + TABLE + ' WHERE ' + FIELD_ID + ' = ?';
 
 controller.list = (req, res) => {
     req.getConnection((err, conn) => {
-        conn.query('SELECT * FROM users', (err, users) => {
+        conn.query(LIST, (err, results) => {
             if (err) {
                 next(err);
             }
             res.render('users', {
-                data: users
+                data: results
             });
         });
     });
@@ -15,8 +26,11 @@ controller.list = (req, res) => {
 
 controller.add = (req, res) => {
     const data = req.body;
+    var salt = genRandomString(16); /** Gives us salt of length 16 */
+    var hashedPass = sha512(data.password, salt);
+    data.password = hashedPass.passwordHash;
     req.getConnection((err, conn) => {
-        conn.query('INSERT INTO users set ?', [data], (err, users) => {
+        conn.query(INSERT, [data], (err, results) => {
             if (err) {
                 next(err);
             }
@@ -28,12 +42,12 @@ controller.add = (req, res) => {
 controller.edit = (req, res) => {
     const id = req.params.id;
     req.getConnection((err, conn) => {
-        conn.query('SELECT * FROM users WHERE id = ?', [id], (err, user) => {
+        conn.query(LIST_BY_ID, [id], (err, result) => {
             if (err) {
                 next(err);
             }
             res.render('user_edit', {
-                data: user[0]
+                data: result[0]
             });
         });
     });
@@ -42,8 +56,13 @@ controller.edit = (req, res) => {
 controller.update = (req, res) => {
     const id = req.params.id;
     const newUser = req.body;
+    var salt = genRandomString(16); /** Gives us salt of length 16 */
+    var hashedPass = sha512(newUser.password, salt);
+    newUser.password = hashedPass.passwordHash;
+    console.log(newUser.password);
     req.getConnection((err, conn) => {
-        conn.query('UPDATE users set ? WHERE id = ?', [newUser, id], (err, users) => {
+        conn.query(UPDATE, [newUser, id], (err, results) => {
+            console.log(req);
             if (err) {
                 next(err);
             }
@@ -52,17 +71,32 @@ controller.update = (req, res) => {
     });
 };
 
-
 controller.delete = (req, res) => {
     const id = req.params.id;
     req.getConnection((err, conn) => {
-        conn.query('DELETE FROM users WHERE id = ?', [id], (err, users) => {
+        conn.query(DELETE, [id], (err, results) => {
             if (err) {
                 next(err);
             }
             res.redirect('/');
         })
     })
+};
+
+var genRandomString = function (length) {
+    return crypto.randomBytes(Math.ceil(length / 2))
+        .toString('hex') /** convert to hexadecimal format */
+        .slice(0, length);   /** return required number of characters */
+};
+
+var sha512 = function(password, salt){
+    var hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
+    hash.update(password);
+    var value = hash.digest('hex');
+    return {
+        salt:salt,
+        passwordHash:value
+    };
 };
 
 module.exports = controller;

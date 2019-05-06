@@ -3,14 +3,14 @@ CREATE DATABASE database_develop;
 USE database_develop;
 
 CREATE TABLE users (
-  id int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id int(11) NOT NULL UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   username varchar(30) NOT NULL,
   password varchar(255) NOT NULL,
   firstname varchar(30) NOT NULL,
   lastname varchar(30) NOT NULL,
-  email varchar(30) NOT NULL,
-  createdat timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updatedat timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  email varchar(45) NOT NULL,
+  createdat datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedat datetime DEFAULT NULL
 )
 
 SHOW TABLES;
