@@ -1,7 +1,9 @@
 'use strict';
 var crypto = require('crypto');
 
-const controller = {};
+const CONTROLLER = {};
+const PATH = require('path');
+const POOL = require(PATH.join(__dirname, '..', 'config', 'database'));
 
 const TABLE = 'users';
 const FIELD_ID = 'id';
@@ -11,20 +13,20 @@ const LIST_BY_ID = 'SELECT * FROM ' + TABLE + ' WHERE ' + FIELD_ID + ' = ?';
 const UPDATE = 'UPDATE ' + TABLE + ' SET ? WHERE ' + FIELD_ID + ' = ?';
 const DELETE = 'DELETE FROM ' + TABLE + ' WHERE ' + FIELD_ID + ' = ?';
 
-controller.list = (req, res) => {
+CONTROLLER.list = (req, res) => {
     req.getConnection((err, conn) => {
         conn.query(LIST, (err, results) => {
             if (err) {
                 next(err);
             }
-            res.render('users', {
+            res.render(PATH.join(__dirname, '..', 'views', 'admin', 'users', 'users'), {
                 data: results
             });
         });
     });
 };
 
-controller.add = (req, res) => {
+CONTROLLER.add = (req, res) => {
     const data = req.body;
     var salt = genRandomString(16); /** Gives us salt of length 16 */
     var hashedPass = sha512(data.password, salt);
@@ -39,7 +41,7 @@ controller.add = (req, res) => {
     });
 };
 
-controller.edit = (req, res) => {
+CONTROLLER.edit = (req, res) => {
     const id = req.params.id;
     req.getConnection((err, conn) => {
         conn.query(LIST_BY_ID, [id], (err, result) => {
@@ -53,7 +55,7 @@ controller.edit = (req, res) => {
     });
 };
 
-controller.update = (req, res) => {
+CONTROLLER.update = (req, res) => {
     const id = req.params.id;
     const newUser = req.body;
     var salt = genRandomString(16); /** Gives us salt of length 16 */
@@ -71,7 +73,7 @@ controller.update = (req, res) => {
     });
 };
 
-controller.delete = (req, res) => {
+CONTROLLER.delete = (req, res) => {
     const id = req.params.id;
     req.getConnection((err, conn) => {
         conn.query(DELETE, [id], (err, results) => {
@@ -89,14 +91,14 @@ var genRandomString = function (length) {
         .slice(0, length);   /** return required number of characters */
 };
 
-var sha512 = function(password, salt){
+var sha512 = function (password, salt) {
     var hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
     hash.update(password);
     var value = hash.digest('hex');
     return {
-        salt:salt,
-        passwordHash:value
+        salt: salt,
+        passwordHash: value
     };
 };
 
-module.exports = controller;
+module.exports = CONTROLLER;
