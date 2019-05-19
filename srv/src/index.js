@@ -45,6 +45,8 @@ MY_APP.use(EXPRESS.json());
 MY_APP.use(require('./routes/admin/index'));
 MY_APP.use(require('./routes/auth/authentication'));
 MY_APP.use('/admin/students', require('./routes/admin/students'));
+MY_APP.use('/admin/lecturers', require('./routes/admin/lecturers'));
+MY_APP.use('/admin/administrators', require('./routes/admin/administrators'));
 
 // GLOBAL VARIABLES
 MY_APP.use((req, res, next) => {

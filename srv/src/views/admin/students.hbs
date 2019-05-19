@@ -10,50 +10,50 @@
         </div>
     </div>
     <br />
-    <div class="row">
-        <div class="col col-lg-12">
-            <div class="container-fluid">
-                <table
-                    class="table dataTable datatable-responsive-tafesa-courses-competencies collapsed display compact nowrap table-striped table-hover">
-                    <caption>List of Students</caption>
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Username</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Created At</th>
-                            <th>Updated At</th>
-                            <th colspan="2">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each students}}
-                        <tr>
-                            <td>{{id}}</td>
-                            <td>{{username}}</td>
-                            <td>{{firstName}}</td>
-                            <td>{{lastName}}</td>
-                            <td>{{email}}</td>
-                            <td>{{timeago createdAt}}</td>
-                            {{#if updatedAt}}
-                            <td>{{timeago updatedAt}}</td>
-                            {{else}}
-                            <td>N/A</td>
-                            {{/if}}
-                            <td><a href="#edit" data-toggle="modal" data-student-id="{{id}}"
-                                    data-username="{{username}}" data-first-name="{{firstName}}"
-                                    data-last-name="{{lastName}}" data-email="{{email}}" data-updatedAt="{{updatedAt}}"
-                                    class="btn btn-primary">Update</a></td>
-                            <td><a href="#delete" data-toggle="modal" data-student-id="{{id}}"
-                                    data-username="{{username}}" class="btn btn-danger">Delete</a></td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="container-fluid">
+        <table
+            class="table dataTable datatable-responsive-tafesa-courses-competencies collapsed display compact nowrap table-striped table-hover">
+            <caption>List of Students</caption>
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each students}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{username}}</td>
+                    <td>{{firstName}}</td>
+                    <td>{{lastName}}</td>
+                    <td>{{email}}</td>
+                    <td>{{timeago createdAt}}</td>
+                    {{#if updatedAt}}
+                    <td>{{timeago updatedAt}}</td>
+                    {{else}}
+                    <td>N/A</td>
+                    {{/if}}
+                    <td>
+                        <a href="#edit" data-toggle="modal" data-id="{{id}}" data-username="{{username}}"
+                            data-first-name="{{firstName}}" data-last-name="{{lastName}}" data-email="{{email}}"
+                            data-updatedAt="{{updatedAt}}" class="btn btn-primary">Update</a>
+                    </td>
+                    <td>
+                        <a href="#delete" data-toggle="modal" data-id="{{id}}" data-username="{{username}}"
+                            class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
     <div class="modal fade bd-example-modal-sm" id="add" tabindex="-1" role="dialog" aria-labelledby="add"
         aria-hidden="true">
@@ -106,9 +106,8 @@
                 <div class="modal-body">
                     <form method="post" action="" id="frmedit" name="frmedit" role="form">
                         <div class="form-group">
-                            <label for="studentId">
-                                Id: <input readOnly class="form-control" type="text" id="studentId" name="studentId"
-                                    value="studentId" />
+                            <label for="id">
+                                Id: <input readOnly class="form-control" type="text" id="id" name="id" value="id" />
                             </label>
                         </div>
                         <div class="form-group">
@@ -158,9 +157,8 @@
                     <h3>Are you sure?</h3>
                     <form method="post" action="" id="frmDelete" name="frmDelete" role="form">
                         <div class="form-group">
-                            <label for="studentId">
-                                Id: <input readOnly class="form-control" type="text" id="studentId" name="studentId"
-                                    value="studentId" />
+                            <label for="id">
+                                Id: <input readOnly class="form-control" type="text" id="id" name="id" value="id" />
                             </label>
                         </div>
                         <div class="form-group">
@@ -179,28 +177,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $('#edit').on('show.bs.modal', function (e) {
-            var studentId = $(e.relatedTarget).data('student-id');
+            var id = $(e.relatedTarget).data('id');
             var username = $(e.relatedTarget).data('username');
             var firstName = $(e.relatedTarget).data('firstName');
             var lastName = $(e.relatedTarget).data('lastName');
             var email = $(e.relatedTarget).data('email');
             var updatedAt = $(e.relatedTarget).data('updatedAt');
-            $(e.currentTarget).find('input[name="studentId"]').val(studentId);
+            $(e.currentTarget).find('input[name="id"]').val(id);
             $(e.currentTarget).find('input[name="username"]').val(username);
             $(e.currentTarget).find('input[name="firstName"]').val(firstName);
             $(e.currentTarget).find('input[name="lastName"]').val(lastName);
             $(e.currentTarget).find('input[name="email"]').val(email);
             $(e.currentTarget).find('input[name="updatedAt"]').val(updatedAt);
-            $("#frmedit").attr("action", "/admin/students/update/" + studentId);
+            $("#frmedit").attr("action", "/admin/students/update/" + id);
         });
     </script>
     <script type="text/javascript">
         $('#delete').on('show.bs.modal', function (e) {
-            var studentId = $(e.relatedTarget).data('student-id');
+            var id = $(e.relatedTarget).data('id');
             var username = $(e.relatedTarget).data('username');
-            $(e.currentTarget).find('input[name="studentId"]').val(studentId);
+            $(e.currentTarget).find('input[name="id"]').val(id);
             $(e.currentTarget).find('input[name="username"]').val(username);
-            $("#frmDelete").attr("action", "/admin/students/delete/" + studentId);
+            $("#frmDelete").attr("action", "/admin/students/delete/" + id);
         });
     </script>
 </div>
