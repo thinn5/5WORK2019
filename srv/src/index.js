@@ -64,3 +64,36 @@ MY_APP.use('/assets', EXPRESS.static(__dirname + '/public/assets'));
 MY_APP.listen(MY_APP.get('port'), () => {
     console.log('Server on port : ' + MY_APP.get('port'));
 });
+
+var app = require('electron').app;
+var BrowserWindow = require('electron').BrowserWindow;
+
+let win;
+
+function createWindow() {
+    win = new BrowserWindow({
+        width: 1200,
+        height: 800,
+        backgroundColor: '#2e2c29',
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+    win.loadURL('http://localhost:3000');
+    win.webContents.openDevTools();
+    win.on('closed', () => {
+        win = null
+    })
+}
+app.on('ready', createWindow);
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+});
+
+app.on('activate', () => {
+    if (win === null) {
+        createWindow()
+    }
+});

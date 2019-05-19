@@ -2,9 +2,10 @@
   "name": "srv",
   "version": "1.0.0",
   "description": "SRV TAFESA",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon src/"
+    "dev": "nodemon src/",
+    "start": "electron ."
   },
   "author": "Alessandro, Ngo, Gonzalo",
   "license": "MIT",
