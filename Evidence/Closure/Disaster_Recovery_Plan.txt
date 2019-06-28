@@ -1,0 +1,5 @@
+In the case of poor project health:
+discuss project health in next Scrum meeting, consolidate workload and set priorities giving preference to mission critical elements. Consider any non-critical developments to be at risk of discontinuation and revise project schedule accordingly to reflect changes. Advise senior staff and update client if need be. 
+
+In the case of facing critical failure or infeasibility of project continuation:
+Create an executive summary of the current status of the project and prepare for negotiations with the client to cover for damages/loss. Create a contractual agreement with client if negotiations are successful and surrender any deliverables to the client after signing. Update senior staff with status of the project and conclude the project with thorough documentation and lessons learnt. 
