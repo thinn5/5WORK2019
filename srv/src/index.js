@@ -2,6 +2,11 @@ const EXPRESS = require('express');
 const PATH = require('path');
 const MORGAN = require('morgan');
 const EXPRESS_HANDLEBARS = require('express-handlebars');
+const flash = require('connect-flash');
+const EXPRESS_SESSION = require('express-session');
+const EXPRESS_MYSQL_SESSION = require('express-mysql-session');
+const PASSPORT = require('passport');
+const { database } = require('./keys');
 
 // Directories
 const CONTROLLERS = PATH.join(__dirname, 'controllers');
@@ -13,9 +18,11 @@ const VIEWS = PATH.join(__dirname, 'views');
 
 // Initialize
 const MY_APP = EXPRESS();
+require('./lib/passport');
 
 // Settings
 MY_APP.set('port', process.env.PORT || 4000);
+
 MY_APP.engine('.hbs', EXPRESS_HANDLEBARS({
     defaultLayout: 'main',
     layoutsDir: PATH.join(VIEWS, 'layout'),
@@ -23,24 +30,38 @@ MY_APP.engine('.hbs', EXPRESS_HANDLEBARS({
     extname: '.hbs',
     helpers: require(PATH.join(LIB, 'handlebars'))
 }));
+MY_APP.set('view engine', '.hbs');
 
 // Middlewares
+MY_APP.use(EXPRESS_SESSION({
+    secret: 'srvapplicationfortafesateamnag2019',
+    cookie: { maxAge: 28 * 24 * 60 * 60 * 1000 },
+    resave: false,
+    saveUninitialized: false,
+    store: new EXPRESS_MYSQL_SESSION(database)
+}));
+MY_APP.use(flash());
 MY_APP.use(MORGAN('dev'));
 MY_APP.use(EXPRESS.urlencoded({ extended: false }));
 MY_APP.use(EXPRESS.json());
+MY_APP.use(PASSPORT.initialize());
+MY_APP.use(PASSPORT.session());
 
 // Global variables
 MY_APP.use((req, res, next) => {
-    //MY_APP.locals.success = req.flash('success');
+    MY_APP.locals.success = req.flash('success');
+    MY_APP.locals.message = req.flash('message');
+    MY_APP.locals.user = req.user;
     next();
 });
 
 // Routes
 MY_APP.use(require(PATH.join(ROUTES, 'index')));
 MY_APP.use(require(PATH.join(ROUTES, 'authentication')));
-/*MY_APP.use('/admin', require(PATH.join(ROUTES, 'backEnd', 'index')));*/
+MY_APP.use('/admin', require(PATH.join(ROUTES, 'administrator', 'administrator')));
 
 // Public static files
+MY_APP.use(EXPRESS.static(PUBLIC));
 MY_APP.use('/css', EXPRESS.static(PATH.join(PUBLIC, 'css')));
 MY_APP.use('/js', EXPRESS.static(PATH.join(PUBLIC, 'js')));
 MY_APP.use('/img', EXPRESS.static(PATH.join(PUBLIC, 'img')));
