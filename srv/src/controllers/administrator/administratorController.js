@@ -68,7 +68,7 @@ CONTROLLER.updateAdministrator = async(req, res) => {
         title: "Administrators Maintainer",
         description: "Administrators Maintainer"
     };
-    req.flash('success', 'Administrator updated successfully! Well done!');
+    req.flash('success', 'Administrator updated successfully!');
     res.redirect('/admin/users/administrators');
 };
 
