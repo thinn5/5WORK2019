@@ -19,21 +19,21 @@ CONTROLLER.hub = (req, res, next) => {
                 title: "Dashboard",
                 description: "Dashboard"
             };
-            req.flash('success', 'Logged in successfully! Well done!');
+            req.flash('success', 'Welcome!');
             res.redirect('/admin/dashboard');
         } else if (req.user.role == 'lecturer') {
             res.locals.metaTags = {
-                title: "Dashboard",
-                description: "Dashboard"
+                title: "Main",
+                description: "Main"
             };
-            req.flash('success', 'Logged in successfully! Well done!');
-            res.redirect('/admin/users/administrators');
+            req.flash('success', 'Welcome!');
+            res.redirect('/lecturers/index');
         } else if (req.user.role == 'student') {
             res.locals.metaTags = {
                 title: "Dashboard",
                 description: "Dashboard"
             };
-            req.flash('success', 'Logged in successfully! Well done!');
+            req.flash('success', 'Welcome!');
             res.redirect('/');
         } else {
             res.redirect('/');

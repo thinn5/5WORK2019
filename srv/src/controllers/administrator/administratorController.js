@@ -19,7 +19,7 @@ CONTROLLER.dashboard = (req, res) => {
         title: "Dashboard",
         description: "Dashboard"
     };
-    res.render(PATH.join(VIEW, 'index'), { layout: LAYOUT });
+    res.render(PATH.join(VIEW, 'index'), { layout: LAYOUT, user: req.user.username });
 };
 
 CONTROLLER.administrators = async(req, res) => {
@@ -42,7 +42,7 @@ CONTROLLER.addAdministrator = async(req, res, next) => {
         title: "Administrators Maintainer",
         description: "Administrators Maintainer"
     };
-    req.flash('success', 'Administrator saved successfully! Well done!');
+    req.flash('success', 'Administrator saved successfully!');
 };
 
 CONTROLLER.deleteAdministrator = async(req, res) => {
@@ -54,7 +54,7 @@ CONTROLLER.deleteAdministrator = async(req, res) => {
         title: "Administrators Maintainer",
         description: "Administrators Maintainer"
     };
-    req.flash('success', 'Administrator soft-deleted successfully! Well done!');
+    req.flash('success', 'Administrator soft-deleted successfully!');
     res.redirect('/admin/users/administrators');
 };
 

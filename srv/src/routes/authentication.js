@@ -9,7 +9,7 @@ ROUTER.post('/', AUTHENTICATION_CONTROLLER.login);
 ROUTER.get('/logout', function(req, res) {
     req.logOut();
     req.session = null;
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 ROUTER.get('/hub', isLoggedIn, AUTHENTICATION_CONTROLLER.hub);

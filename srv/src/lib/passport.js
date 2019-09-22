@@ -4,7 +4,7 @@ const LOCAL_STRATEGY = require('passport-local').Strategy;
 const POOL = require('../database');
 const HELPERS = require('./helpers');
 
-const MY_ADMINISTRATOR = require('../models/user');
+const MY_USER = require('../models/user');
 const TABLE = 'users';
 const INSERT = 'INSERT INTO ' + TABLE + ' SET ?';
 const SELECT = 'SELECT * FROM ' + TABLE + ' WHERE username = ?';
@@ -34,10 +34,10 @@ PASSPORT.use('local.signup', new LOCAL_STRATEGY({
     passReqToCallback: true
 }, async(req, username, password, done) => {
     req.body.password = await HELPERS.encryptPassword(password);
-    MY_ADMINISTRATOR.User(req.body.username, req.body.password, req.body.firstName, req.body.lastName, req.body.email, req.body.role);
-    const result = await POOL.query(INSERT, [MY_ADMINISTRATOR]);
-    MY_ADMINISTRATOR.id = result.insertId;
-    return done(null, MY_ADMINISTRATOR);
+    MY_USER.User(req.body.username, req.body.password, req.body.firstName, req.body.lastName, req.body.email, req.body.role);
+    const result = await POOL.query(INSERT, [MY_USER]);
+    MY_USER.id = result.insertId;
+    return done(null, MY_USER);
 }));
 
 PASSPORT.serializeUser((user, done) => {
