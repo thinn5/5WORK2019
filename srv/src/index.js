@@ -58,9 +58,13 @@ MY_APP.use((req, res, next) => {
 // Routes
 MY_APP.use(require(PATH.join(ROUTES, 'index')));
 MY_APP.use(require(PATH.join(ROUTES, 'authentication')));
+
 MY_APP.use('/admin', require(PATH.join(ROUTES, 'administrator', 'administrator')));
 MY_APP.use('/admin', require(PATH.join(ROUTES, 'administrator', 'lecturer')));
 MY_APP.use('/admin', require(PATH.join(ROUTES, 'administrator', 'student')));
+MY_APP.use('/admin', require(PATH.join(ROUTES, 'administrator', 'course')));
+MY_APP.use('/admin', require(PATH.join(ROUTES, 'administrator', 'competency')));
+
 MY_APP.use('/lecturers', require(PATH.join(ROUTES, 'lecturer', 'lecturer')));
 
 // Public static files
