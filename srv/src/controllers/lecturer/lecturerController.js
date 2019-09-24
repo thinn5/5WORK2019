@@ -8,7 +8,7 @@ const PASSPORT = require('passport');
 
 const TABLE = 'users';
 const FIELD_ID = 'id';
-const ROLE = 'lecturer';
+const ROLE = 'student';
 const LIST = 'SELECT * FROM ' + TABLE + ' WHERE role = "' + ROLE + '" AND deletedAt IS NULL';
 
 CONTROLLER.index = async(req, res) => {
