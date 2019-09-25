@@ -200,7 +200,7 @@ ol {
     font-size: 24px;
     right: 30px;
     width: 50px;
-    background-color: #fb397d;
+    background-color: #be1428;
     color: #fff;
     text-align: center;
     height: 50px;
@@ -385,7 +385,7 @@ p {
 }
 
 .sing-up-button>a:hover {
-    background: #fb397d;
+    background: #fd552a;
     color: #fff;
     border-color: transparent;
     -webkit-transition-duration: 500ms;
@@ -1300,4 +1300,8 @@ p {
 
 .copyright-text>p {
     margin-bottom: 0;
+}
+
+.buttons-html5 {
+    cursor: pointer;
 }

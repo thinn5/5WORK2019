@@ -39,6 +39,10 @@ var DatatableButtonsHtml5 = function() {
         // Column selectors
         $('.datatable-button-html5-columns').DataTable({
             order: [0, 'asc'],
+            lengthMenu: [
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, "All"]
+            ],
             responsive: true,
             buttons: {
                 buttons: [{
