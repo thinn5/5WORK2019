@@ -6,7 +6,7 @@ const MY_ADMINISTRATOR = require('../../models/user');
 const VIEW = PATH.join(__dirname, '..', '..', 'views', 'lecturer');
 const PASSPORT = require('passport');
 
-const TABLE = 'users';
+const TABLE = 'user';
 const FIELD_ID = 'id';
 const ROLE = 'student';
 const LIST = 'SELECT * FROM ' + TABLE + ' WHERE role = "' + ROLE + '" AND deletedAt IS NULL';
