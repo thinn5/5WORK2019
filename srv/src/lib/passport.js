@@ -5,21 +5,21 @@ const POOL = require('../database');
 const HELPERS = require('./helpers');
 
 const MY_USER = require('../models/user');
-const TABLE = 'users';
+const TABLE = 'user';
 const INSERT = 'INSERT INTO ' + TABLE + ' SET ?';
-const SELECT = 'SELECT * FROM ' + TABLE + ' WHERE username = ?';
+const SELECT = 'SELECT * FROM ' + TABLE + ' WHERE EmailAddress = ?';
 
 PASSPORT.use('local.signin', new LOCAL_STRATEGY({
-    usernameField: 'username',
+    usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
-}, async(req, username, password, done) => {
-    const rows = await POOL.query(SELECT, [username]);
+}, async(req, email, password, done) => {
+    const rows = await POOL.query(SELECT, [email]);
     if (rows.length > 0) {
         const user = rows[0];
-        const validPassword = await HELPERS.matchPassword(password, user.password)
+        const validPassword = await HELPERS.matchPassword(password, user.Password)
         if (validPassword) {
-            done(null, user, req.flash('success', ' Welcome ' + user.username));
+            done(null, user, req.flash('success', ' Welcome ' + user.GivenName));
         } else {
             done(null, false, req.flash('message', 'Incorrect Password'));
         }
@@ -29,22 +29,23 @@ PASSPORT.use('local.signin', new LOCAL_STRATEGY({
 }));
 
 PASSPORT.use('local.signup', new LOCAL_STRATEGY({
-    usernameField: 'username',
+    usernameField: 'emailAddress',
     passwordField: 'password',
     passReqToCallback: true
-}, async(req, username, password, done) => {
+}, async(req, emailAddress, password, done) => {
     req.body.password = await HELPERS.encryptPassword(password);
-    MY_USER.User(req.body.username, req.body.password, req.body.firstName, req.body.lastName, req.body.email, req.body.role);
+    MY_USER.User(req.body.userId, req.body.givenName, req.body.lastName, req.body.emailAddress, req.body.password, req.body.role);
+    console.log(MY_USER);
     const result = await POOL.query(INSERT, [MY_USER]);
-    MY_USER.id = result.insertId;
-    return done(null, MY_USER);
+    //MY_USER.userid = result.insertId;
+    return done(null, null);
 }));
 
 PASSPORT.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.UserID);
 });
 
 PASSPORT.deserializeUser(async(id, done) => {
-    const rows = await POOL.query('SELECT * FROM users WHERE id = ?', [id]);
+    const rows = await POOL.query('SELECT * FROM user WHERE UserID = ?', [id]);
     done(null, rows[0]);
 });

@@ -3,7 +3,7 @@ module.exports = {
         host: 'localhost',
         user: 'root',
         password: '',
-        database: 'srv',
+        database: 'db_tafebuddy',
         dialect: 'mysql'
     }
 };

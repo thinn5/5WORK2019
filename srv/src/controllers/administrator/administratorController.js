@@ -6,13 +6,13 @@ const MY_ADMINISTRATOR = require('../../models/user');
 const VIEW = PATH.join(__dirname, '..', '..', 'views', 'administrator');
 const PASSPORT = require('passport');
 
-const TABLE = 'users';
-const FIELD_ID = 'id';
+const TABLE = 'user';
+const FIELD_ID = 'UserID';
 const ROLE = 'administrator';
-const LIST = 'SELECT * FROM ' + TABLE + ' WHERE role = "' + ROLE + '" AND deletedAt IS NULL';
+const LIST = 'SELECT * FROM ' + TABLE + ' WHERE role = "' + ROLE + '" AND DeletedAt IS NULL';
 const INSERT = 'INSERT INTO ' + TABLE + ' SET ?';
 const UPDATE = 'UPDATE ' + TABLE + ' SET ? WHERE ' + FIELD_ID + ' = ?';
-const SOFT_DELETE = 'UPDATE ' + TABLE + ' SET deletedAt = ? WHERE ' + FIELD_ID + ' = ?';
+const SOFT_DELETE = 'UPDATE ' + TABLE + ' SET DeletedAt = ? WHERE ' + FIELD_ID + ' = ?';
 
 CONTROLLER.dashboard = (req, res) => {
     res.locals.metaTags = {
@@ -61,8 +61,8 @@ CONTROLLER.deleteAdministrator = async(req, res) => {
 CONTROLLER.updateAdministrator = async(req, res) => {
     const { id } = req.params;
     req.body.updatedAt = require('moment')().format('YYYY-MM-DD HH:mm:ss');
-    const { username, firstName, lastName, email, updatedAt } = req.body;
-    const UPDATE_ADMINISTRATOR = { username, firstName, lastName, email, updatedAt };
+    const { emailAddress, givenName, lastName, updatedAt } = req.body;
+    const UPDATE_ADMINISTRATOR = { emailAddress, givenName, lastName, updatedAt };
     await POOL.query(UPDATE, [UPDATE_ADMINISTRATOR, id]);
     res.locals.metaTags = {
         title: "Administrators Maintainer",

@@ -12,20 +12,20 @@
             <div class="modal-body">
                 <form action="/admin/users/lecturers/add" method="post" autocomplete="off">
                     <div class="form-group">
-                        <input type="text" name="username" placeholder="Username" class="form-control" required>
+                        <input type="number" name="userId" placeholder="ID" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" placeholder="Password" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="firstName" placeholder="First Name" class="form-control" required>
+                        <input type="text" name="givenName" placeholder="First Name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <input type="text" name="lastName" placeholder="Last Name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="email" placeholder="Email" class="form-control" required>
-                    </div>                    
+                        <input type="text" name="emailAddress" placeholder="Email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" class="form-control" required>
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block">Save Lecturer</button>
                     </div>
@@ -51,7 +51,7 @@
                 <h3>Are you sure?</h3>
                 <form method="post" action="" id="frmDelete" name="frmDelete" role="form">
                     <div class="form-group">
-                        <input hidden class="form-control" type="text" id="id" name="id" value="id" />
+                        <input hidden class="form-control" type="text" id="userId" name="userId" value="userId" />
                     </div>
                     <input type="submit" value="Delete" class="btn btn-danger btn-block" />
                 </form>
@@ -76,15 +76,15 @@
                 <form method="post" action="" id="frmedit" name="frmedit" role="form" autocomplete="off">
                     <input hidden class="form-control" type="text" id="id" name="id" value="id" />
                     <div class="form-group">
-                        <label for="username">
-                            Username: <input class="form-control" type="text" id="username" name="username"
-                                value="username" />
+                        <label for="email">
+                            Email: <input class="form-control" type="text" id="emailAddress" name="emailAddress"
+                                value="emailAddress" />
                         </label>
                     </div>
                     <div class="form-group">
                         <label for="firstName">
-                            First Name: <input class="form-control" type="text" id="firstName" name="firstName"
-                                value="firstName" />
+                            First Name: <input class="form-control" type="text" id="givenName" name="givenName"
+                                value="givenName" />
                         </label>
                     </div>
                     <div class="form-group">
@@ -94,15 +94,10 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="email">
-                            Email: <input class="form-control" type="text" id="email" name="email" value="email" />
-                        </label>
-                    </div>
-                    <div class="form-group">
                         <input type="hidden" class="form-control" id="updatedAt" name="updatedAt" value="{{servertime}}"
                             required>
                     </div>
-                    <input type="submit" value="Update" class="btn btn-success btn-block" />
+                    <input type="submit" value="Update" class="btn btn-primary btn-block" />
                 </form>
             </div>
         </div>
@@ -154,10 +149,9 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>ID</th>
-                                <th>Username</th>
+                                <th>Email</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Email</th>
                                 <th>Created</th>
                                 <th>Updated</th>
                                 <th>Edit</th>
@@ -167,25 +161,24 @@
                         <tbody>
                             {{#each lecturers}}
                             <tr>
-                                <td>{{id}}</td>
-                                <td>{{username}}</td>
-                                <td>{{firstName}}</td>
-                                <td>{{lastName}}</td>
-                                <td>{{email}}</td>
-                                <td>{{timeago createdAt}}</td>
-                                {{#if updatedAt}}
-                                <td>{{timeago updatedAt}}</td>
+                               <td>{{UserID}}</td>
+                                <td>{{EmailAddress}}</td>
+                                <td>{{GivenName}}</td>
+                                <td>{{LastName}}</td>
+                                <td>{{timeago CreatedAt}}</td>
+                                {{#if UpdatedAt}}
+                                <td>{{timeago UpdatedAt}}</td>
                                 {{else}}
                                 <td>Never</td>
                                 {{/if}}
                                 <td>
-                                    <a href="#edit" data-toggle="modal" data-id="{{id}}" data-username="{{username}}"
-                                        data-first-name="{{firstName}}" data-last-name="{{lastName}}"
-                                        data-email="{{email}}" data-updatedAt="{{updatedAt}}"
+                                     <a href="#edit" data-toggle="modal" data-user-id="{{UserID}}"
+                                        data-given-name="{{GivenName}}" data-last-name="{{LastName}}"
+                                        data-email-address="{{EmailAddress}}" data-updatedAt="{{UpdatedAt}}"
                                         class="btn btn-primary">Update</a>
                                 </td>
                                 <td>
-                                    <a href="#delete" data-toggle="modal" data-id="{{id}}" data-username="{{username}}"
+                                    <a href="#delete" data-toggle="modal" data-user-id="{{UserID}}"
                                         class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
@@ -206,26 +199,24 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $('#edit').on('show.bs.modal', function (e) {
-        var id = $(e.relatedTarget).data('id');
-        var username = $(e.relatedTarget).data('username');
-        var firstName = $(e.relatedTarget).data('firstName');
+        var userId = $(e.relatedTarget).data('userId');
+        var givenName = $(e.relatedTarget).data('givenName');
         var lastName = $(e.relatedTarget).data('lastName');
-        var email = $(e.relatedTarget).data('email');
+        var emailAddress = $(e.relatedTarget).data('emailAddress');        
         var updatedAt = $(e.relatedTarget).data('updatedAt');
-        $(e.currentTarget).find('input[name="id"]').val(id);
-        $(e.currentTarget).find('input[name="username"]').val(username);
-        $(e.currentTarget).find('input[name="firstName"]').val(firstName);
+        $(e.currentTarget).find('input[name="userId"]').val(userId);
+        $(e.currentTarget).find('input[name="givenName"]').val(givenName);
         $(e.currentTarget).find('input[name="lastName"]').val(lastName);
-        $(e.currentTarget).find('input[name="email"]').val(email);
+        $(e.currentTarget).find('input[name="emailAddress"]').val(emailAddress);       
         $(e.currentTarget).find('input[name="updatedAt"]').val(updatedAt);
-        $("#frmedit").attr("action", "/admin/users/lecturers/update/" + id);
+        $("#frmedit").attr("action", "/admin/users/lecturers/update/" + userId);
     });
 </script>
 <script type="text/javascript">
     $('#delete').on('show.bs.modal', function (e) {
-        var id = $(e.relatedTarget).data('id');
-        $(e.currentTarget).find('input[name="id"]').val(id);
-        $("#frmDelete").attr("action", "/admin/users/lecturers/delete/" + id);
+        var userId = $(e.relatedTarget).data('userId');
+        $(e.currentTarget).find('input[name="userId"]').val(userId);
+        $("#frmDelete").attr("action", "/admin/users/lecturers/delete/" + userId);
     });
 </script>
 <script>if (window.module) module = window.module;</script>

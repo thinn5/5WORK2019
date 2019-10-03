@@ -1,16 +1,16 @@
-exports.User = function User(username, password, firstName, lastName, email, role) {
-    this.username = username;
-    this.password = password;
-    this.firstName = firstName;
+exports.User = function User(userId, givenName, lastName, emailAddress, password, role) {
+    this.userId = userId;
+    this.givenName = givenName;
     this.lastName = lastName;
-    this.email = email;
+    this.emailAddress = emailAddress;
+    this.password = password;
     this.role = role;
 
-    this.setUsername = function(usernameData) {
-        username = usernameData;
+    this.setUserId = function(userIdData) {
+        userId = userIdData;
     }
-    this.getUsername = function() {
-        return username;
+    this.setUserId = function() {
+        return userId;
     }
 
     this.setPassword = function(passwordData) {
@@ -20,25 +20,25 @@ exports.User = function User(username, password, firstName, lastName, email, rol
         return password;
     }
 
-    this.setFirstName = function(firstNameData) {
-        firstName = firstNameData;
+    this.setGivenName = function(givenNameData) {
+        givenName = givenNameData;
     }
-    this.getFirstName = function() {
-        return firstName;
+    this.getGivenName = function() {
+        return givenName;
     }
 
     this.setLastName = function(lastNameData) {
         lastName = lastNameData;
     }
-    this.getFirstName = function() {
+    this.getLastName = function() {
         return lastName;
     }
 
-    this.setEmail = function(emailData) {
-        email = emailData;
+    this.setEmailAddress = function(emailAddressData) {
+        emailAddress = emailAddressData;
     }
-    this.getEmail = function() {
-        return email;
+    this.getEmailAddress = function() {
+        return emailAddress;
     }
 
     this.setRole = function(roleData) {

@@ -14,21 +14,21 @@ CONTROLLER.login = async(req, res, next) => {
 
 CONTROLLER.hub = (req, res, next) => {
     if (typeof req.user !== 'undefined' || req.user === null) {
-        if (req.user.role == 'administrator') {
+        if (req.user.Role == 'administrator') {
             res.locals.metaTags = {
                 title: "Dashboard",
                 description: "Dashboard"
             };
             req.flash('success', 'Welcome!');
             res.redirect('/admin/dashboard');
-        } else if (req.user.role == 'lecturer') {
+        } else if (req.user.Role == 'lecturer') {
             res.locals.metaTags = {
                 title: "Main",
                 description: "Main"
             };
             req.flash('success', 'Welcome!');
             res.redirect('/lecturers/index');
-        } else if (req.user.role == 'student') {
+        } else if (req.user.Role == 'student') {
             res.locals.metaTags = {
                 title: "Dashboard",
                 description: "Dashboard"
