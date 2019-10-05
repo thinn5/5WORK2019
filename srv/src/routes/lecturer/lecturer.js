@@ -5,5 +5,6 @@ const LECTURER_CONTROLLER = require(PATH.join(__dirname, '..', '..', '..', 'src'
 const { isLoggedIn } = require('../../lib/auth');
 
 ROUTER.get('/index', isLoggedIn, LECTURER_CONTROLLER.index);
+ROUTER.get('/viewDetails/:id', isLoggedIn, LECTURER_CONTROLLER.viewDetails);
 
 module.exports = ROUTER;

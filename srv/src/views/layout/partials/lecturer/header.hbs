@@ -1,4 +1,4 @@
-<header class="header_area animated">
+<header class="header_area">
     <div class="container-fluid">
         <div class="row align-items-center">
             <!-- Menu Area Start -->
@@ -10,19 +10,21 @@
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar"
                             aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span
                                 class="navbar-toggler-icon"></span></button>
-                        <!-- Menu Area -->                        
-                        <div class="collapse navbar-collapse" id="ca-navbar">   
-                            <span style="color: azure; margin-left: 3rem; font-size: 1.5rem;">Welcome {{user.Role}} {{user.GivenName}} {{user.LastName}}</span>                         
-                            <ul class="navbar-nav ml-auto" id="nav">                                
-                                <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#srv">SRV</a></li>
+                        <!-- Menu Area -->
+                        <div class="collapse navbar-collapse" id="ca-navbar">
+                            <span style="color: azure; margin-left: 3rem; font-size: 1.5rem;">Welcome {{user.Role}}
+                                {{user.GivenName}} {{user.LastName}}</span>
+                            <ul class="navbar-nav ml-auto" id="nav">
+                                <li class="nav-item"><a class="nav-link" href="/lecturers/index">Home</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/lecturers/index#srv">SRV</a></li>
                                 {{!-- {{<li class="nav-item"><a class="nav-link" href="#features">Features</a></li> }} --}}
                                 {{!-- {{<li class="nav-item"><a class="nav-link" href="#screenshot">Screenshot</a></li> }} --}}
                                 {{!-- <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li> }} --}}
                                 {{!-- <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li> }} --}}
                                 {{!-- <li class="nav-item"><a class="nav-link" href="#team">Team</a></li> }} --}}
                                 {{!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> }} --}}
-                            </ul>                           
+                            </ul>
                         </div>
                     </nav>
                 </div>
