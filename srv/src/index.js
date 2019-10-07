@@ -65,6 +65,8 @@ MY_APP.use('/admin', require(PATH.join(ROUTES, 'administrator', 'student')));
 
 MY_APP.use('/lecturers', require(PATH.join(ROUTES, 'lecturer', 'lecturer')));
 
+MY_APP.use('/students', require(PATH.join(ROUTES, 'student', 'student')));
+
 // Public static files
 MY_APP.use(EXPRESS.static(PUBLIC));
 MY_APP.use('/css', EXPRESS.static(PATH.join(PUBLIC, 'css')));

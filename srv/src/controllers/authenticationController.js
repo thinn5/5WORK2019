@@ -34,7 +34,7 @@ CONTROLLER.hub = (req, res, next) => {
                 description: "Dashboard"
             };
             req.flash('success', 'Welcome!');
-            res.redirect('/');
+            res.redirect('/students/index');
         } else {
             res.redirect('/');
         }

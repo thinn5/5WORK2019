@@ -35,7 +35,6 @@ PASSPORT.use('local.signup', new LOCAL_STRATEGY({
 }, async(req, emailAddress, password, done) => {
     req.body.password = await HELPERS.encryptPassword(password);
     MY_USER.User(req.body.userId, req.body.givenName, req.body.lastName, req.body.emailAddress, req.body.password, req.body.role);
-    console.log(MY_USER);
     const result = await POOL.query(INSERT, [MY_USER]);
     //MY_USER.userid = result.insertId;
     return done(null, null);
@@ -46,6 +45,6 @@ PASSPORT.serializeUser((user, done) => {
 });
 
 PASSPORT.deserializeUser(async(id, done) => {
-    const rows = await POOL.query('SELECT * FROM user WHERE UserID = ?', [id]);
+    const rows = await POOL.query('SELECT * FROM ' + TABLE + ' WHERE UserID = ?', [id]);
     done(null, rows[0]);
 });
