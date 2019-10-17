@@ -47,12 +47,12 @@
                             <tr>
                                 <th>Name</th>
                                 <td>{{GivenName}} {{LastName}}</td>
-                            </tr>                            
+                            </tr>
                             <tr>
                                 <th>Email</th>
                                 <td>{{EmailAddress}}</td>
-                            </tr>j8tyaBD5jjk6ytoZ2Lb3YpS3aWwjWd6vpvgABCziAAnjFhkbNesyrN1BJJ8P
-                            <tr>$srvtafesa
+                            </tr>
+                            <tr>
                                 <th>Code</th>
                                 <td>{{QualCode}}</td>
                             </tr>
@@ -96,7 +96,12 @@
                                     <td>{{TafeCompCode}}</td>
                                     <td>{{TermCode}}</td>
                                     <td>{{TermYear}}</td>
-                                    <td>{{Grade}}</td>
+                                    {{#ifEquals Grade "PA"}}
+                                    <td><span class="badge badge-success">Done</span></td>
+                                    {{/ifEquals}}
+                                    {{#ifNotEquals Grade "PA"}}
+                                    <td><span class="badge badge-primary">TODO</span></td>
+                                    {{/ifNotEquals}}
                                     <td>{{timeagoFormatted GradeDate}}</td>
                                 </tr>
                                 {{/each}}

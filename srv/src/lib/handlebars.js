@@ -16,4 +16,12 @@ HELPERS.setSingular = (varName, varValue, options) => {
     options.data.root[varName] = varValue;
 };
 
+HELPERS.ifEquals = (arg1, arg2, options) => {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+};
+
+HELPERS.ifNotEquals = (arg1, arg2, options) => {
+    return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+};
+
 module.exports = HELPERS;
