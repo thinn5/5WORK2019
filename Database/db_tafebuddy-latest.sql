@@ -4274,6 +4274,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`UserID`, `GivenName`, `LastName`, `EmailAddress`, `Password`, `Role`, `CreatedAt`, `UpdatedAt`, `DeletedAt`) VALUES
 ('000000001', 'Gonzalo', 'Soto', 'gonzalo.soto@darkom.cl', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'administrator', '2019-10-02 20:01:28', NULL, NULL),
+('001076795', 'Alessandro', 'Ferro', 'alessandro.ferro@student.tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'administrator', '2019-10-02 20:01:28', NULL, NULL),
 ('000010546', 'Julie', 'Ruiz', 'Julie.Ruiz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
 ('000010581', 'Santi', 'Ruiz', 'Santi.Ruiz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
 ('000010849', 'Kwok', 'Lau', 'Kwok.Lau@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
@@ -4463,9 +4464,9 @@ ALTER TABLE `user`
 --
 -- Constraints for table `competency_qualification`
 --
-ALTER TABLE `competency_qualification`
-  ADD CONSTRAINT `fk_competency_qualification_competency1` FOREIGN KEY (`NationalCompCode`) REFERENCES `competency` (`NationalCompCode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_competency_qualification_competency_type1` FOREIGN KEY (`CompTypeCode`) REFERENCES `competency_type` (`CompTypeCode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ ALTER TABLE `competency_qualification`
+   ADD CONSTRAINT `fk_competency_qualification_competency1` FOREIGN KEY (`NationalCompCode`) REFERENCES `competency` (`NationalCompCode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+   ADD CONSTRAINT `fk_competency_qualification_competency_type1` FOREIGN KEY (`CompTypeCode`) REFERENCES `competency_type` (`CompTypeCode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `crn_detail`
