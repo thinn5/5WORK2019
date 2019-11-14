@@ -1,4 +1,4 @@
-<!-- ***** Wellcome Area Start ***** -->
+<!-- ***** Welcome Area Start ***** -->
 <section class="wellcome_area clearfix" id="home">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
@@ -12,11 +12,13 @@
         </div>
     </div>
     <!-- Welcome thumb -->
-    <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.5s">
-        <img src="../img/bg-img/welcome-img.png" alt="">
+    <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.9s">
+        <img src="../img/bg-img/students-4.png" alt="">
     </div>
 </section>
-<!-- ***** Wellcome Area End ***** -->
+<!-- Trigger the modal with a button -->
+
+<!-- ***** Welcome Area End ***** -->
 <!-- ***** Special Area Start ***** -->
 <section class="special-area bg-white section_padding_100" id="srv">
     <div class="container">
@@ -75,6 +77,30 @@
                         <p>Completed</p>
                         {{/each}}
                         {{/if}}
+                        <div class="get-started-button wow bounceInDown" data-wow-delay="1.8s" data-toggle="modal"
+                            data-target="#requestparchment">
+                            <a href="#"><span class="icon-bookmarks" style="color:yellow;"></span> Congrats! Request
+                                your Parchment</a>
+                        </div>
+                        <!-- Modal -->
+                        <div id="requestparchment" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">                                   
+                                    <div class="modal-header">                                        
+                                        <h4 class="modal-title">Request Parchment</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Your parchment has been requested.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         {{#if crns}}
                         <table
                             class="table dataTable datatable-button-html5-columns collapsed display compact nowrap table-striped table-hover">
