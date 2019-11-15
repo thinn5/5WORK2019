@@ -77,11 +77,14 @@
                         <p>Completed</p>
                         {{/each}}
                         {{/if}}
-                        <div class="get-started-button wow bounceInDown" data-wow-delay="1.8s" data-toggle="modal"
-                            data-target="#requestparchment">
-                            <a href="#"><span class="icon-bookmarks" style="color:yellow;"></span> Congrats! Request
-                                your Parchment</a>
-                        </div>
+                        <div style="float:right;">
+						<div class="get-started-button wow bounceInDown" data-wow-delay="1.8s" data-toggle="modal"
+                            data-target="#requestparchment" style="display:inline;" fit-content = "min(max-content, max(min-content, fill-available))">
+                            <a href="#" >
+							<span class="icon-bookmarks" style="color:yellow;"></span><span> Congrats! Request
+                                your Parchment</span></a>
+                        </div>						
+						</div>
                         <!-- Modal -->
                         <div id="requestparchment" class="modal fade" role="dialog">
                             <div class="modal-dialog">
