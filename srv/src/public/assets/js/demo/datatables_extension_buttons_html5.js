@@ -36,11 +36,6 @@ var DatatableButtonsHtml5 = function() {
             }
         });
 
-        $('#datatable-student tfoot th').each(function() {
-            var title = $(this).text();
-            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-        });
-
         // Column selectors
         $('.datatable-button-html5-columns').DataTable({
 
@@ -73,6 +68,10 @@ var DatatableButtonsHtml5 = function() {
             }
         });
 
+        /*$('#datatable-student tfoot th').each(function() {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+        });*/
 
         // Column selectors
         var table = $('.datatable-button-html5-columns-student').DataTable({
@@ -102,10 +101,31 @@ var DatatableButtonsHtml5 = function() {
                         }
                     }
                 ]
+            },
+
+            initComplete: function() {
+                this.api().columns().every(function() {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function() {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function(d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                });
             }
         });
 
-        table.columns().every(function() {
+        /*table.columns().every(function() {
             var that = this;
 
             $('input', this.footer()).on('keyup change clear', function() {
@@ -115,7 +135,7 @@ var DatatableButtonsHtml5 = function() {
                         .draw();
                 }
             });
-        });
+        });*/
 
 
     };
