@@ -88,7 +88,7 @@ var DatatableButtonsHtml5 = function() {
                         className: 'btn btn-light',
                         text: '<i class="icon-file-pdf mr-2"></i> PDF',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                         }
                     },
                     {
@@ -98,7 +98,7 @@ var DatatableButtonsHtml5 = function() {
                         fieldSeparator: '\t',
                         extension: '.csv',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                         }
                     }
                 ]
