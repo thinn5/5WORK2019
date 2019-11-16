@@ -104,7 +104,7 @@ var DatatableButtonsHtml5 = function() {
             },
 
             initComplete: function() {
-                this.api().columns().every(function() {
+                this.api().columns([0, 1, 2, 3, 4, 5, 6]).every(function() {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
                         .appendTo($(column.footer()).empty())
@@ -119,7 +119,8 @@ var DatatableButtonsHtml5 = function() {
                         });
 
                     column.data().unique().sort().each(function(d, j) {
-                        select.append('<option value="' + d + '">' + d + '</option>')
+                        var val = $('<div/>').html(d).text();
+                        select.append('<option value="' + val + '">' + val + '</option>')
                     });
                 });
             }
