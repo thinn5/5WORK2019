@@ -21,7 +21,7 @@ const ROLE = 'student';
 
 const LIST_CRN = 'SELECT ' + FIELDS_CRN + ' FROM ' + TABLE_STUDENT_GRADE + ' WHERE ' + FIELD_ID + ' = ?';
 const LIST_PROGRESS = 'SELECT ROUND(((AVG(Grade = "PA")) * 100),2) AS Average FROM ' + TABLE_STUDENT_GRADE + ' WHERE ' + FIELD_ID + ' = ?';
-const LIST = 'SELECT DISTINCT ' + FIELDS + ' FROM ' + TABLE_USER +
+const LIST = 'SELECT ' + FIELDS + ' FROM ' + TABLE_USER +
     ' INNER JOIN ' + TABLE_STUDENT_STUDY_PLAN + ' ON ' + FIRST_INNER_ON +
     ' INNER JOIN ' + TABLE_QUALIFICATION + ' ON ' + SECOND_INNER_ON +
     ' WHERE Role = "' + ROLE + '" AND DeletedAt IS NULL AND u.' + FIELD_ID + ' = ?';

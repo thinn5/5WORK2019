@@ -12,7 +12,7 @@
         </div>
     </div>
     <!-- Welcome thumb -->
-    <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.9s">
+    <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.3s">
         <img src="../img/bg-img/students-4.png" alt="">
     </div>
 </section>
@@ -77,36 +77,43 @@
                         <p>Completed</p>
                         {{/each}}
                         {{/if}}
-                        <div style="float:right;">
-						<div class="get-started-button wow bounceInDown" data-wow-delay="1.8s" data-toggle="modal"
-                            data-target="#requestparchment" style="display:inline;" fit-content = "min(max-content, max(min-content, fill-available))">
-                            <a href="#" >
-							<span class="icon-bookmarks" style="color:yellow;"></span><span> Congrats! Request
-                                your Parchment</span></a>
-                        </div>						
-						</div>
-                        <!-- Modal -->
-                        <div id="requestparchment" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-                                <!-- Modal content-->
-                                <div class="modal-content">                                   
-                                    <div class="modal-header">                                        
-                                        <h4 class="modal-title">Request Parchment</h4>
+                        <section class="clearfix">
+                            <div class="container-fluid">
+                                <div class="row">                                    
+                                    <div class="col-md-12 float-right">
+                                        <div class="get-started-button wow bounceInDown" data-wow-delay="1.8s">
+                                            <a href="#" data-toggle="modal" data-target="#requestparchment">
+                                                <span class="icon-bookmarks" style="color:yellow;"></span>
+                                                Request your Parchment
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="modal-body">
-                                        <p>Your parchment has been requested.</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default"
-                                            data-dismiss="modal">Close</button>
+                                    <!-- Modal -->
+                                    <div id="requestparchment" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Request Parchment</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Your parchment has been requested.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
+                        </section>
+
                         {{#if crns}}
-                        <table
-                            class="table dataTable datatable-button-html5-columns collapsed display compact nowrap table-striped table-hover">
+                        <table id="datatable-student"
+                            class="table dataTable datatable-button-html5-columns-student collapsed display compact nowrap table-striped table-hover">
                             <caption>List of Students</caption>
                             <thead class="thead-dark">
                                 <tr>
@@ -135,6 +142,16 @@
                                 </tr>
                                 {{/each}}
                             </tbody>
+                            <tfoot class="thead-dark">
+                                <tr>
+                                    <th>CRN</th>
+                                    <th>Tafe Comp Code</th>
+                                    <th>Term</th>
+                                    <th>Year</th>
+                                    <th>Grade</th>
+                                    <th>Grade Date</th>
+                                </tr>
+                            </tfoot>
                         </table>
                         {{else}}
                         <h3 class="text-center">Whoops... There are not CRNS here.</h3>

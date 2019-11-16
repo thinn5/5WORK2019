@@ -36,8 +36,14 @@ var DatatableButtonsHtml5 = function() {
             }
         });
 
+        $('#datatable-student tfoot th').each(function() {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+        });
+
         // Column selectors
         $('.datatable-button-html5-columns').DataTable({
+
             order: [0, 'asc'],
             lengthMenu: [
                 [5, 10, 25, 50, -1],
@@ -66,7 +72,56 @@ var DatatableButtonsHtml5 = function() {
                 ]
             }
         });
+
+
+        // Column selectors
+        var table = $('.datatable-button-html5-columns-student').DataTable({
+            order: [0, 'asc'],
+            lengthMenu: [
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, "All"]
+            ],
+            responsive: true,
+            buttons: {
+                buttons: [{
+                        extend: 'pdfHtml5',
+                        className: 'btn btn-light',
+                        text: '<i class="icon-file-pdf mr-2"></i> PDF',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        className: 'btn btn-light',
+                        text: '<i class="icon-file-spreadsheet mr-2"></i> CSV',
+                        fieldSeparator: '\t',
+                        extension: '.csv',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    }
+                ]
+            }
+        });
+
+        table.columns().every(function() {
+            var that = this;
+
+            $('input', this.footer()).on('keyup change clear', function() {
+                if (that.search() !== this.value) {
+                    that
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+
     };
+
+
+
 
     // Select2 for length menu styling
     var _componentSelect2 = function() {
