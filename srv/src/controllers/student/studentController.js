@@ -29,6 +29,7 @@ const LIST = 'SELECT ' + FIELDS + ' FROM ' + TABLE_USER +
 const PARCHMENT_REQUEST = 'UPDATE ' + TABLE_USER + ' SET ParchmentRequest = 1 WHERE ' + FIELD_ID + ' = ?';
 
 CONTROLLER.index = async(req, res) => {
+    console.log(LIST_PROGRESS);
     const myUserId = req.user.UserID;
     const crns = await POOL.query(LIST_CRN, [myUserId, myUserId]);
     const progress = await POOL.query(LIST_PROGRESS, [myUserId, myUserId]);
