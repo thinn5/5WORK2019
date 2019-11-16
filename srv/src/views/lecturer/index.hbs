@@ -38,7 +38,7 @@
                     <div class="container-fluid">
                         {{#if students}}
                         <table
-                            class="table dataTable datatable-button-html5-columns collapsed display compact nowrap table-striped table-hover">
+                            class="table dataTable datatable-button-html5-columns-lecturer collapsed display compact nowrap table-striped table-hover">
                             <caption>List of Students</caption>
                             <thead class="thead-dark">
                                 <tr>
@@ -49,6 +49,7 @@
                                     <th>Code</th>
                                     <th>Qualification</th>
                                     <th>Performance</th>
+                                    <th>Parchment Request</th>
                                     <th>Info</th>
                                 </tr>
                             </thead>
@@ -69,6 +70,12 @@
                                                 {{Average}}%</div>
                                         </div>
                                     </td>
+                                    {{#ifEquals ParchmentRequest 1}}
+                                    <td><span class="badge badge-success">Requested</span></td>
+                                    {{/ifEquals}}
+                                    {{#ifEquals ParchmentRequest 0}}
+                                    <td><span class="badge badge-danger">Not Requested</span></td>
+                                    {{/ifEquals}}
                                     <td>
                                         <a href="/lecturers/viewDetails/{{UserID}}#details" class="btn btn-primary">
                                             Details</button>
@@ -76,6 +83,19 @@
                                 </tr>
                                 {{/each}}
                             </tbody>
+                            <tfoot class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Given Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Code</th>
+                                    <th>Qualification</th>
+                                    <th>Performance</th>
+                                    <th>Parchment Request</th>
+                                    <th>Info</th>
+                                </tr>
+                            </tfoot>
                         </table>
                         {{else}}
                         <h3 class="text-center">Whoops... There are not Students here.</h3>

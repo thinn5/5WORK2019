@@ -74,7 +74,8 @@ var DatatableButtonsHtml5 = function() {
         });*/
 
         // Column selectors
-        var table = $('.datatable-button-html5-columns-student').DataTable({
+        /*var table = */
+        $('.datatable-button-html5-columns-student').DataTable({
             order: [0, 'asc'],
             lengthMenu: [
                 [5, 10, 25, 50, -1],
@@ -137,6 +138,115 @@ var DatatableButtonsHtml5 = function() {
                 }
             });
         });*/
+
+        /*var table = */
+        $('.datatable-button-html5-columns-lecturer').DataTable({
+            order: [0, 'asc'],
+            lengthMenu: [
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, "All"]
+            ],
+            responsive: true,
+            buttons: {
+                buttons: [{
+                        extend: 'pdfHtml5',
+                        className: 'btn btn-light',
+                        text: '<i class="icon-file-pdf mr-2"></i> PDF',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        className: 'btn btn-light',
+                        text: '<i class="icon-file-spreadsheet mr-2"></i> CSV',
+                        fieldSeparator: '\t',
+                        extension: '.csv',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                        }
+                    }
+                ]
+            },
+
+            initComplete: function() {
+                this.api().columns([0, 1, 2, 3, 4, 5, 6, 7]).every(function() {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function() {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function(d, j) {
+                        var val = $('<div/>').html(d).text();
+                        select.append('<option value="' + val + '">' + val + '</option>')
+                    });
+                });
+            }
+        });
+
+
+
+        /*var table = */
+        $('.datatable-button-html5-columns-details').DataTable({
+            order: [0, 'asc'],
+            lengthMenu: [
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, "All"]
+            ],
+            responsive: true,
+            buttons: {
+                buttons: [{
+                        extend: 'pdfHtml5',
+                        className: 'btn btn-light',
+                        text: '<i class="icon-file-pdf mr-2"></i> PDF',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        className: 'btn btn-light',
+                        text: '<i class="icon-file-spreadsheet mr-2"></i> CSV',
+                        fieldSeparator: '\t',
+                        extension: '.csv',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    }
+                ]
+            },
+
+            initComplete: function() {
+                this.api().columns([0, 1, 2, 3, 4, 5]).every(function() {
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function() {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function(d, j) {
+                        var val = $('<div/>').html(d).text();
+                        select.append('<option value="' + val + '">' + val + '</option>')
+                    });
+                });
+            }
+        });
+
 
 
     };

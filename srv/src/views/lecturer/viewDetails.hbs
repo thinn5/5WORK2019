@@ -4,9 +4,9 @@
         <div class="row h-100 align-items-center">
             <div class="col-12 col-md">
                 <div class="wellcome-heading">
-                    <h2>SRV</h2>
+                    <h2>TAFE Buddy</h2>
                     <h3>TAFESA</h3>
-                    <p>Everything You Need. In one place</p>
+                    <p>Everything You Need In One place</p>
                 </div>
             </div>
         </div>
@@ -33,16 +33,20 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="container-fluid">
-                        <div style="background-color: #ccc; height: 54px; line-height: 54px; padding-left: 1rem">
-                            <i class="fa fa-arrow-circle-left fa-2x"
-                                style="vertical-align: middle; padding-right: 0.36rem"></i>
-                            <a href="/lecturers/index">Index</a><i class="fa fa-angle-right"></i>
-                            <a href="/lecturers/index#srv">SRV</a><i class="fa fa-angle-right"></i>Details</a>
-                        </div>
+
+
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/lecturers/index">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/lecturers/index#srv">SRV</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">View Details</li>
+                            </ol>
+                        </nav>
+
                         {{#if crns}}
                         <table
-                            class="table dataTable datatable-button-html5-columns collapsed display compact nowrap table-striped table-hover">
-                            <caption>List of Students</caption>
+                            class="table dataTable datatable-button-html5-columns-details collapsed display compact nowrap table-striped table-hover">
+                            <caption>Details</caption>
                             <thead class="thead-dark">
                                 <tr>
                                     <th>CRN</th>
@@ -65,6 +69,16 @@
                                 </tr>
                                 {{/each}}
                             </tbody>
+                            <tfoot class="thead-dark">
+                                <tr>
+                                    <th>CRN</th>
+                                    <th>Tafe Comp Code</th>
+                                    <th>Term</th>
+                                    <th>Year</th>
+                                    <th>Grade</th>
+                                    <th>Grade Date</th>
+                                </tr>
+                            </tfoot>
                         </table>
                         {{else}}
                         <h3 class="text-center">Whoops... There are not CRNS for the selected student.</h3>

@@ -6,7 +6,7 @@ const MY_ADMINISTRATOR = require('../../models/user');
 const VIEW = PATH.join(__dirname, '..', '..', 'views', 'lecturer');
 const PASSPORT = require('passport');
 
-const FIELDS = 'u.UserID, u.GivenName, u.LastName, u.EmailAddress, s.QualCode, q.QualName, ROUND(( SELECT AVG( Grade = "PA" ) FROM student_grade WHERE UserID = u.UserID ), 2) * 100 AS Average';
+const FIELDS = 'u.UserID, u.GivenName, u.LastName, u.EmailAddress, u.ParchmentRequest, s.QualCode, q.QualName, ROUND(( SELECT AVG( Grade = "PA" ) FROM student_grade WHERE UserID = u.UserID ), 2) * 100 AS Average';
 const TABLE_USER = 'user u';
 const TABLE_STUDENT_STUDY_PLAN = 'student_studyplan s';
 const TABLE_QUALIFICATION = 'qualification q';

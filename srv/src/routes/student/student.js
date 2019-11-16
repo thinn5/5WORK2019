@@ -6,4 +6,6 @@ const { isLoggedIn } = require('../../lib/auth');
 
 ROUTER.get('/index', isLoggedIn, STUDENT_CONTROLLER.index);
 
+ROUTER.post('/index', isLoggedIn, STUDENT_CONTROLLER.parchmentRequest);
+
 module.exports = ROUTER;
