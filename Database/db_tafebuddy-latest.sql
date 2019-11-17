@@ -4272,6 +4272,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`UserID`, `GivenName`, `LastName`, `EmailAddress`, `Password`, `Role`, `ParchmentRequest`, `CreatedAt`, `UpdatedAt`, `DeletedAt`) VALUES
 ('000000001', 'Gonzalo', 'Soto', 'gonzalo.soto@darkom.cl', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'administrator', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000000002', 'Alessandro', 'Ferro', 'alessandro.ferro@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'administrator', 0, '2019-10-02 20:01:28', NULL, NULL),
 ('000010546', 'Julie', 'Ruiz', 'Julie.Ruiz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
 ('000010581', 'Santi', 'Ruiz', 'Santi.Ruiz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
 ('000010849', 'Kwok', 'Lau', 'Kwok.Lau@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
