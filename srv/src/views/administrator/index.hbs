@@ -148,7 +148,6 @@
                                         {{campusesFromDB}}
                                         {{/each}}
                                         {{/if}}
-
                                     </div>
                                 </div>
                             </div>
@@ -304,8 +303,8 @@
 
                             // Add legend
                             legend: {
-                                orient: 'horizontal',
-                                bottom: 'bottom',
+                                orient: 'vertical',
+                                x: 'left',
                                 data: ['Ready', 'Not Ready'],
                                 itemHeight: 8,
                                 itemWidth: 8
@@ -399,8 +398,8 @@
 
                                 // Add legend
                                 legend: {
-                                    orient: 'horizontal',
-                                    bottom: 'bottom',
+                                    orient: 'vertical',
+                                    x: 'left',
                                     data: ['Requested', 'Ready'],
                                     itemHeight: 8,
                                     itemWidth: 8
@@ -412,6 +411,25 @@
                                     type: 'pie',
                                     radius: ['50%', '70%'],
                                     center: ['50%', '50%'],
+                                    avoidLabelOverlap: false,
+                                    label: {
+                                        normal: {
+                                            show: false,
+                                            position: 'center'
+                                            },
+                                        emphasis: {
+                                            show: true,
+                                            textStyle: {
+                                                fontSize: '30',
+                                                fontWeight: 'bold'
+                                            }
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            show: false
+                                        }
+                                    },
                                     itemStyle: {
                                         normal: {
                                             borderWidth: 1,
