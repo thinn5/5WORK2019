@@ -245,10 +245,17 @@
                 // Initialize chart
                 var pie_donut = echarts.init(pie_donut_element);
 
-                var parchmentRequested = {{#if parchmentRequested}}{{parchmentRequested.length}}{{/if}} ? 0 : 0;
-                var parchmentNotRequested = {{#if parchmentNotRequested}}{{parchmentNotRequested.length}}{{/if}};
+                var parchmentRequested = 0;
+                if ( {{#if parchmentRequested}}{{#each parchmentRequested}}{{parchmentRequestedFromDB}}{{/each}}{{/if}} != 0) {
+                    parchmentRequested = {{#if parchmentRequested}}{{parchmentRequested.length}}{{/if}};
+                }
+
+                var parchmentNotRequested = 0
+                if ( {{#if parchmentNotRequested}}{{#each parchmentNotRequested}}{{parchmentNotRequestedFromDB}}{{/each}}{{/if}} != 0) {
+                    parchmentNotRequested = {{#if parchmentNotRequested}}{{parchmentNotRequested.length}}{{/if}};
+                }
+
                 var parchmentReady = {{#if parchmentReady}}{{parchmentReady.length}}{{/if}};
-                var parchmentNotRequested = {{#if parchmentReady}}{{parchmentReady.length}}{{/if}} - {{#if parchmentRequested}}{{parchmentRequested.length}}{{/if}};                
                 //
                 // Chart config
                 //

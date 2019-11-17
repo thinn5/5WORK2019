@@ -24,8 +24,8 @@ const TOTAL_STUDENTS = 'SELECT COUNT(' + FIELD_ID + ') as TotalStudents FROM ' +
 const PARCHMENT_READY = 'SELECT ' + FIELD_ID + ' AS parchmentReadyTotal FROM ' + TABLE_STUDENT_GRADE + ' GROUP BY ' + FIELD_ID + ' HAVING ROUND(((AVG(Grade = "PA")) * 100),2) >= 100';
 const PARCHMENT_NOT_READY = 'SELECT ' + FIELD_ID + ' AS parchmentNotReadyTotal FROM ' + TABLE_STUDENT_GRADE + ' GROUP BY ' + FIELD_ID + ' HAVING ROUND(((AVG(Grade = "PA")) * 100),2) < 100';
 
-const PARCHMENT_REQUESTED = 'SELECT COUNT(' + FIELD_ID + ') AS parchmentRequested FROM ' + TABLE_USER + ' WHERE ParchmentRequest = 1 AND Role = "' + ROLE_STUDENT + '"';
-const PARCHMENT_NOT_REQUESTED = 'SELECT COUNT(' + FIELD_ID + ') AS parchmentNotRequested FROM ' + TABLE_USER + ' WHERE ParchmentRequest = 0 AND Role = "' + ROLE_STUDENT + '"';
+const PARCHMENT_REQUESTED = 'SELECT COUNT(' + FIELD_ID + ') AS parchmentRequestedFromDB FROM ' + TABLE_USER + ' WHERE ParchmentRequest = 1 AND Role = "' + ROLE_STUDENT + '"';
+const PARCHMENT_NOT_REQUESTED = 'SELECT COUNT(' + FIELD_ID + ') AS parchmentNotRequestedFromDB FROM ' + TABLE_USER + ' WHERE ParchmentRequest = 0 AND Role = "' + ROLE_STUDENT + '"';
 
 CONTROLLER.dashboard = async(req, res) => {
     const totalAdministators = await POOL.query(TOTAL_ADMINISTRATORS);
@@ -35,7 +35,7 @@ CONTROLLER.dashboard = async(req, res) => {
     const parchmentNotReady = await POOL.query(PARCHMENT_NOT_READY);
     const parchmentRequested = await POOL.query(PARCHMENT_REQUESTED);
     const parchmentNotRequested = await POOL.query(PARCHMENT_NOT_REQUESTED);
-    console.log(parchmentRequested);
+
     res.locals.metaTags = {
         title: "Dashboard",
         description: "Dashboard"
