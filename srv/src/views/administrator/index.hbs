@@ -245,10 +245,10 @@
                 // Initialize chart
                 var pie_donut = echarts.init(pie_donut_element);
 
-                var parchmentRequested = {{#if parchmentRequested}}{{parchmentRequested.length}}{{/if}};
+                var parchmentRequested = {{#if parchmentRequested}}{{parchmentRequested.length}}{{/if}} ? 0 : 0;
                 var parchmentNotRequested = {{#if parchmentNotRequested}}{{parchmentNotRequested.length}}{{/if}};
                 var parchmentReady = {{#if parchmentReady}}{{parchmentReady.length}}{{/if}};
-                var parchmentNotRequested = parchmentReady - parchmentRequested;
+                var parchmentNotRequested = {{#if parchmentReady}}{{parchmentReady.length}}{{/if}} - {{#if parchmentRequested}}{{parchmentRequested.length}}{{/if}};                
                 //
                 // Chart config
                 //
@@ -300,7 +300,7 @@
                     legend: {
                         orient: 'horizontal',
                         bottom: 'bottom',
-                        data: ['Requested', 'Not Requested'],
+                        data: ['Requested', 'Ready'],
                         itemHeight: 8,
                         itemWidth: 8
                     },
@@ -319,7 +319,7 @@
                         },
                         data: [
                             { value: parchmentRequested, name: 'Requested' },
-                            { value: parchmentNotRequested, name: 'Not Requested' }
+                            { value: parchmentNotRequested, name: 'Ready' }
                         ]
                     }]
                 });

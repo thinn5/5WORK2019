@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2019 at 07:05 PM
+-- Generation Time: Nov 16, 2019 at 03:53 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -2813,14 +2813,11 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-('C_tzqX8vvQKKy9_gugAAy-VvqmEgf5mY', 1572714312, '{\"cookie\":{\"originalMaxAge\":2419199999,\"expires\":\"2019-11-02T17:04:01.097Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{\"error\":[\"Missing credentials\"]},\"passport\":{\"user\":\"000010849\"}}'),
-('XK1pNAbuirFxUKR382D9zXVu85wYzduc', 1572698861, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-11-02T12:47:40.914Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('YjvzN1ydQAi4yO_WWaRpafkm2RutL-tJ', 1572710544, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-11-02T11:30:53.581Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":\"000000001\"}}'),
-('YrMVorHY_BpJO5u831VVUJzj8WVE6Uc_', 1572699810, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-11-02T13:03:30.307Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('j6ztYZSpUqB6AggqS9ym3RtJ1VSOOfkS', 1572699500, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-11-02T12:58:20.082Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('oPkcxXIgU_xN7F_2i2K0HSwk8UBiij7W', 1572698897, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-11-02T12:48:17.045Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('tN6uwvSgD6g_QPsmqNY8Hu2kKPNUokpa', 1572699714, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-11-02T13:01:53.588Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
-('udWa6WQGmp--s3IAx4eKnsVZwpDNcG2y', 1572699939, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-11-02T13:05:38.837Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}');
+('3M5gn0_gXrvT4JiKey4DVDRnKJnE3usS', 1576150113, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-12-12T11:28:33.097Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
+('F800dtCytKeXvR4rtZARvh5Fx7a4omRo', 1576138185, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-12-12T08:09:44.603Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
+('VpmCu4GlF5fesH7AsgwfgjoT9N-2WWsx', 1576138185, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-12-12T08:09:44.592Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}'),
+('otU8Vn2NRlFn8Kn4QdbC7SEfnxcVRW20', 1576335149, '{\"cookie\":{\"originalMaxAge\":2419199998,\"expires\":\"2019-12-14T14:52:06.220Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":\"000011369\"}}'),
+('wVTEeYEOdZQv310Ihvna4n8WaaIoOUEd', 1576150113, '{\"cookie\":{\"originalMaxAge\":2419200000,\"expires\":\"2019-12-12T11:28:33.102Z\",\"httpOnly\":true,\"path\":\"/\"},\"flash\":{}}');
 
 -- --------------------------------------------------------
 
@@ -4263,6 +4260,7 @@ CREATE TABLE `user` (
   `EmailAddress` varchar(64) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Role` varchar(15) NOT NULL,
+  `ParchmentRequest` tinyint(4) NOT NULL DEFAULT '0',
   `CreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdatedAt` datetime DEFAULT NULL,
   `DeletedAt` datetime DEFAULT NULL
@@ -4272,45 +4270,43 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserID`, `GivenName`, `LastName`, `EmailAddress`, `Password`, `Role`, `CreatedAt`, `UpdatedAt`, `DeletedAt`) VALUES
-('000000001', 'Gonzalo', 'Soto', 'gonzalo.soto@darkom.cl', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'administrator', '2019-10-02 20:01:28', NULL, NULL),
-('001076795', 'Alessandro', 'Ferro', 'alessandro.ferro@student.tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'administrator', '2019-10-02 20:01:28', NULL, NULL),
-('000010546', 'Julie', 'Ruiz', 'Julie.Ruiz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000010581', 'Santi', 'Ruiz', 'Santi.Ruiz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000010849', 'Kwok', 'Lau', 'Kwok.Lau@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000010901', 'Nadil', 'Sundarapperuma', 'Nadil.Sundarapperuma@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000011327', 'Stuart', 'Clement', 'Stuart.Clement@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000011349', 'Vicki', 'Thomas', 'Vicki.Thomas@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000011369', 'Kym', 'Bond', 'Kym.Bond@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000011942', 'Paul', 'Kasperski', 'Paul.Kasperski@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000012085', 'Glenn', 'McCallum', 'Glenn.McCallum@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000012109', 'Prem', 'Paelchen', 'Prem.Paelchen@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000012439', 'Alex', 'Worrall', 'alexander.worrall@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000012517', 'Greg', 'Lynch', 'Greg.Lynch@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000012763', 'Deb', 'Farrell', 'Deb.Farrell@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000012974', 'Stuart', 'McIntyre', 'Stuart.McIntyre@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013015', 'James', 'Corbett', 'James.Corbett@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013047', 'Alex ', 'Zhao', 'Alex .Zhao@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013125', 'Paul', 'Burke', 'Paul.Burke@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013221', 'Karina', 'Miegel', 'Karina.Miegel@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013268', 'Trevor', 'Learey', 'Trevor.Learey@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013289', 'Russell', 'James', 'Russell.James@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013311', 'Heath', 'Barratt', 'Heath.Barratt@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013490', 'Stephen', 'Hindle', 'Stephen.Hindle@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013514', 'Dale', 'Van Heer', 'Dale.Van Heer@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013540', 'Jason', 'Butler', 'Jason.Butler@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000013605', 'Karyn', 'Beyne', 'Karyn.Beyne@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000017445', 'Roberto', 'Cevallos', 'Roberto.Cevallos@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000276592', 'Craig', 'Moody', 'Craig.Moody@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000320151', 'Daryn', 'Piltz', 'Daryn.Piltz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000724247', 'Martin', 'Perez', 'm_perez@hotmail.com', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'student', '2019-10-02 20:01:28', NULL, NULL),
-('000857816', 'Jacquelin', 'Brooks', 'Jackie.Brooks@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000896534', 'Sally', 'Smith', 'sally.smith@student.tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'student', '2019-10-02 20:01:28', NULL, NULL),
-('000928152', 'Michelle', 'Minkoff', 'Michelle.Minkoff@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('000944814', 'Melissa', 'Huikeshoven', 'Melissa.Huikeshoven@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('001034176', 'Brenton', 'McKinlay', 'Brenton.McKinlay@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('001038996', 'Mustafa', 'Abdelwahab', 'Mustafa.Abdelwahab@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', '2019-10-02 20:01:28', NULL, NULL),
-('1234', 'qwer', 'qwer', 'qwer', '$2a$09$7hODplR5ADADuT3HKT5Hg.RkHGIzXiG1r2czxqpld4FRNr0Ck1E.S', 'administrator', '2019-10-05 14:34:10', '2019-10-05 14:35:25', '2019-10-05 15:03:07');
+INSERT INTO `user` (`UserID`, `GivenName`, `LastName`, `EmailAddress`, `Password`, `Role`, `ParchmentRequest`, `CreatedAt`, `UpdatedAt`, `DeletedAt`) VALUES
+('000000001', 'Gonzalo', 'Soto', 'gonzalo.soto@darkom.cl', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'administrator', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000010546', 'Julie', 'Ruiz', 'Julie.Ruiz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000010581', 'Santi', 'Ruiz', 'Santi.Ruiz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000010849', 'Kwok', 'Lau', 'Kwok.Lau@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000010901', 'Nadil', 'Sundarapperuma', 'Nadil.Sundarapperuma@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000011327', 'Stuart', 'Clement', 'Stuart.Clement@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000011349', 'Vicki', 'Thomas', 'Vicki.Thomas@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000011369', 'Kym', 'Bond', 'Kym.Bond@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000011942', 'Paul', 'Kasperski', 'Paul.Kasperski@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000012085', 'Glenn', 'McCallum', 'Glenn.McCallum@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000012109', 'Prem', 'Paelchen', 'Prem.Paelchen@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000012439', 'Alex', 'Worrall', 'alexander.worrall@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000012517', 'Greg', 'Lynch', 'Greg.Lynch@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000012763', 'Deb', 'Farrell', 'Deb.Farrell@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000012974', 'Stuart', 'McIntyre', 'Stuart.McIntyre@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013015', 'James', 'Corbett', 'James.Corbett@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013047', 'Alex ', 'Zhao', 'Alex .Zhao@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013125', 'Paul', 'Burke', 'Paul.Burke@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013221', 'Karina', 'Miegel', 'Karina.Miegel@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013268', 'Trevor', 'Learey', 'Trevor.Learey@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013289', 'Russell', 'James', 'Russell.James@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013311', 'Heath', 'Barratt', 'Heath.Barratt@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013490', 'Stephen', 'Hindle', 'Stephen.Hindle@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013514', 'Dale', 'Van Heer', 'Dale.Van Heer@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013540', 'Jason', 'Butler', 'Jason.Butler@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000013605', 'Karyn', 'Beyne', 'Karyn.Beyne@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000017445', 'Roberto', 'Cevallos', 'Roberto.Cevallos@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000276592', 'Craig', 'Moody', 'Craig.Moody@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000320151', 'Daryn', 'Piltz', 'Daryn.Piltz@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000724247', 'Martin', 'Perez', 'm_perez@hotmail.com', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'student', 1, '2019-10-02 20:01:28', NULL, NULL),
+('000857816', 'Jacquelin', 'Brooks', 'Jackie.Brooks@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000896534', 'Sally', 'Smith', 'sally.smith@student.tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'student', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000928152', 'Michelle', 'Minkoff', 'Michelle.Minkoff@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('000944814', 'Melissa', 'Huikeshoven', 'Melissa.Huikeshoven@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('001034176', 'Brenton', 'McKinlay', 'Brenton.McKinlay@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL),
+('001038996', 'Mustafa', 'Abdelwahab', 'Mustafa.Abdelwahab@tafesa.edu.au', '$2a$09$hg/ez95IzhLCH6LaeBZqPuSgaC22JA/CW2QCa5sFjgsueh89Iu3uu', 'lecturer', 0, '2019-10-02 20:01:28', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -4464,9 +4460,9 @@ ALTER TABLE `user`
 --
 -- Constraints for table `competency_qualification`
 --
- ALTER TABLE `competency_qualification`
-   ADD CONSTRAINT `fk_competency_qualification_competency1` FOREIGN KEY (`NationalCompCode`) REFERENCES `competency` (`NationalCompCode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-   ADD CONSTRAINT `fk_competency_qualification_competency_type1` FOREIGN KEY (`CompTypeCode`) REFERENCES `competency_type` (`CompTypeCode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `competency_qualification`
+  ADD CONSTRAINT `fk_competency_qualification_competency1` FOREIGN KEY (`NationalCompCode`) REFERENCES `competency` (`NationalCompCode`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_competency_qualification_competency_type1` FOREIGN KEY (`CompTypeCode`) REFERENCES `competency_type` (`CompTypeCode`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `crn_detail`

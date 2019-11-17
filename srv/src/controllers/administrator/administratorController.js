@@ -35,6 +35,7 @@ CONTROLLER.dashboard = async(req, res) => {
     const parchmentNotReady = await POOL.query(PARCHMENT_NOT_READY);
     const parchmentRequested = await POOL.query(PARCHMENT_REQUESTED);
     const parchmentNotRequested = await POOL.query(PARCHMENT_NOT_REQUESTED);
+    console.log(parchmentRequested);
     res.locals.metaTags = {
         title: "Dashboard",
         description: "Dashboard"
