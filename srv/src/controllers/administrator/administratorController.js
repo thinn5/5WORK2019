@@ -27,6 +27,11 @@ const PARCHMENT_NOT_READY = 'SELECT ' + FIELD_ID + ' AS parchmentNotReadyTotal F
 const PARCHMENT_REQUESTED = 'SELECT COUNT(' + FIELD_ID + ') AS parchmentRequestedFromDB FROM ' + TABLE_USER + ' WHERE ParchmentRequest = 1 AND Role = "' + ROLE_STUDENT + '"';
 const PARCHMENT_NOT_REQUESTED = 'SELECT COUNT(' + FIELD_ID + ') AS parchmentNotRequestedFromDB FROM ' + TABLE_USER + ' WHERE ParchmentRequest = 0 AND Role = "' + ROLE_STUDENT + '"';
 
+const TOTAL_CAMPUSES = 'SELECT COUNT(*) AS campusesFromDB FROM campus WHERE 1';
+const TOTAL_QUALIFICATIONS = 'SELECT COUNT(*) AS qualificationsFromDB FROM qualification WHERE 1';
+const TOTAL_COMPETENCIES = 'SELECT COUNT(*) AS competenciesFromDB FROM competency WHERE 1';
+const TOTAL_SUBJECTS = 'SELECT COUNT(*) AS subjectsFromDB FROM subject WHERE 1';
+
 CONTROLLER.dashboard = async(req, res) => {
     const totalAdministators = await POOL.query(TOTAL_ADMINISTRATORS);
     const totalLecturers = await POOL.query(TOTAL_LECTURERS);
@@ -35,6 +40,10 @@ CONTROLLER.dashboard = async(req, res) => {
     const parchmentNotReady = await POOL.query(PARCHMENT_NOT_READY);
     const parchmentRequested = await POOL.query(PARCHMENT_REQUESTED);
     const parchmentNotRequested = await POOL.query(PARCHMENT_NOT_REQUESTED);
+    const campuses = await POOL.query(TOTAL_CAMPUSES);
+    const qualifications = await POOL.query(TOTAL_QUALIFICATIONS);
+    const competencies = await POOL.query(TOTAL_COMPETENCIES);
+    const subjects = await POOL.query(TOTAL_SUBJECTS);
 
     res.locals.metaTags = {
         title: "Dashboard",
@@ -48,6 +57,10 @@ CONTROLLER.dashboard = async(req, res) => {
         parchmentNotReady: parchmentNotReady,
         parchmentRequested: parchmentRequested,
         parchmentNotRequested: parchmentNotRequested,
+        campuses: campuses,
+        qualifications: qualifications,
+        competencies: competencies,
+        subjects: subjects,
         layout: LAYOUT,
         user: req.user.username
     });
