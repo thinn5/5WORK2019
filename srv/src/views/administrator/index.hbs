@@ -226,7 +226,7 @@
     var EchartsPiesDonuts = function () {
 
 
-        var _piesDonutsExamples = function () {
+        var _pieDonut = function () {
             if (typeof echarts == 'undefined') {
                 console.warn('Warning - echarts.min.js is not loaded.');
                 return;
@@ -248,7 +248,7 @@
                 var pie_basic = echarts.init(pie_basic_element);
 
                 //var parchmentReady = {{#if parchmentReady}}{{#each parchmentReady}}{{parchmentReadyTotal}}{{/each}}{{/if}}
-                var parchmentReady = {{#if parchmentReady }} {{ parchmentReady.length }} {{/if}};
+                var parchmentReady = {{#if parchmentReady }} {{ parchmentReady.length }} {{else}} 0 {{/if}};
                 var parchmentNotReady = {{#if parchmentNotReady }} {{ parchmentNotReady.length }} {{/if}};
 
 
@@ -346,7 +346,7 @@
                             parchmentNotRequested = {{#if parchmentNotRequested}} {{ parchmentNotRequested.length }} {{/if}};
                         }
 
-                        var parchmentReady = {{#if parchmentReady }} {{ parchmentReady.length }} {{/if}};
+                        var parchmentReady = {{#if parchmentReady }} {{ parchmentReady.length }} {{else}} 0 {{/if}};
                             //
                             // Chart config
                             //
@@ -478,7 +478,7 @@
 
                     return {
                         init: function () {
-                            _piesDonutsExamples();
+                            _pieDonut();
                         }
                     }
                 } ();
