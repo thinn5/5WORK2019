@@ -1,3 +1,7 @@
+var electron = require('electron');
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
+
 const EXPRESS = require('express');
 const PATH = require('path');
 const MORGAN = require('morgan');
@@ -77,4 +81,34 @@ MY_APP.use('/assets', EXPRESS.static(PATH.join(PUBLIC, 'assets')));
 // Start server
 MY_APP.listen(MY_APP.get('port'), () => {
     console.log('Server automagically working on port : ' + MY_APP.get('port'));
+});
+
+let win;
+
+function createWindow() {
+    win = new BrowserWindow({
+        width: 1200,
+        height: 800,
+        backgroundColor: '#2e2c29',
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+    win.loadURL('http://localhost:4000');
+    win.webContents.openDevTools();
+    win.on('closed', () => {
+        win = null
+    })
+}
+app.on('ready', createWindow);
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+});
+
+app.on('activate', () => {
+    if (win === null) {
+        createWindow()
+    }
 });

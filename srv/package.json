@@ -4,11 +4,14 @@
     "description": "SRV - TAFESA",
     "main": "src/index.js",
     "scripts": {
+        "test": "electron .",
+        "start": "electron .",
         "dev": "nodemon src/"
     },
     "author": "Alessandro, Ngo, Gonzalo",
     "license": "MIT",
     "dependencies": {
+        "app": "^0.1.0",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
         "connect-flash": "^0.1.1",
@@ -27,6 +30,7 @@
         "timeago.js": "^4.0.0-beta.2"
     },
     "devDependencies": {
+        "electron-rebuild": "^1.8.4",
         "nodemon": "^1.19.2"
     }
 }
