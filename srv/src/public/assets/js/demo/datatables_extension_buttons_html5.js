@@ -76,6 +76,8 @@ var DatatableButtonsHtml5 = function() {
         // Column selectors
         /*var table = */
         $('.datatable-button-html5-columns-student').DataTable({
+            orderCellsTop: true,
+            dom: 'Bfrtip',
             order: [0, 'asc'],
             lengthMenu: [
                 [5, 10, 25, 50, -1],
@@ -104,11 +106,13 @@ var DatatableButtonsHtml5 = function() {
                 ]
             },
 
+
+
             initComplete: function() {
                 this.api().columns([0, 1, 2, 3, 4, 5, 6]).every(function() {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
-                        .appendTo($(column.footer()).empty())
+                        .appendTo($("#datatable-student thead tr:eq(1) th").eq(column.index()).empty())
                         .on('change', function() {
                             var val = $.fn.dataTable.util.escapeRegex(
                                 $(this).val()
@@ -127,6 +131,19 @@ var DatatableButtonsHtml5 = function() {
             }
         });
 
+        /*$(".filterhead").each(function(i) {
+            var select = $('<select><option value=""></option></select>')
+                .appendTo($(this).empty())
+                .on('change', function() {
+                    var term = $(this).val();
+                    tableStudent.column(i).search(term, false, false).draw();
+                });
+            tableStudent.column(i).data().unique().sort().each(function(d, j) {
+                var val = $('<div/>').html(d).text();
+                select.append('<option value="' + val + '">' + val + '</option>')
+            });
+        });*/
+
         /*table.columns().every(function() {
             var that = this;
 
@@ -141,6 +158,8 @@ var DatatableButtonsHtml5 = function() {
 
         /*var table = */
         $('.datatable-button-html5-columns-lecturer').DataTable({
+            orderCellsTop: true,
+            dom: 'Bfrtip',
             order: [0, 'asc'],
             lengthMenu: [
                 [5, 10, 25, 50, -1],
@@ -173,7 +192,7 @@ var DatatableButtonsHtml5 = function() {
                 this.api().columns([0, 1, 2, 3, 4, 5, 6, 7]).every(function() {
                     var column = this;
                     var select = $('<select><option value=""></option></select>')
-                        .appendTo($(column.footer()).empty())
+                        .appendTo($("#datatable-lecturer thead tr:eq(1) th").eq(column.index()).empty())
                         .on('change', function() {
                             var val = $.fn.dataTable.util.escapeRegex(
                                 $(this).val()
