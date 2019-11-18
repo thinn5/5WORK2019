@@ -1,3 +1,6 @@
+<!-- Insert this line above script imports  -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
 <script src="/js/administrator/main.js"></script>
 
 <script src="../../assets/js/jquery.min.js"></script>
@@ -16,4 +19,7 @@
 <script src="../../assets/js/demo/datatables_responsive.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@4.4.0/dist/echarts.min.js"></script>
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
 

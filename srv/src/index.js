@@ -95,7 +95,7 @@ function createWindow() {
         }
     });
     win.loadURL('http://localhost:4000');
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
     win.on('closed', () => {
         win = null
     })
