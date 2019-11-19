@@ -8,8 +8,11 @@ ROUTER.post('/', AUTHENTICATION_CONTROLLER.login);
 
 ROUTER.get('/logout', function(req, res) {
     req.logOut();
-    req.session = null;
-    res.redirect('/');
+    req.session.destroy(function(err) {
+        res.redirect('/'); //Inside a callback… bulletproof!
+    });
+    /*req.session = null;
+    res.redirect('/');*/
 });
 
 ROUTER.get('/hub', isLoggedIn, AUTHENTICATION_CONTROLLER.hub);
