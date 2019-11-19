@@ -39,7 +39,7 @@ MY_APP.set('view engine', '.hbs');
 // Middlewares
 MY_APP.use(EXPRESS_SESSION({
     secret: 'srvapplicationfortafesateamnag2019',
-    cookie: { maxAge: 28 * 24 * 60 * 60 * 1000 },
+    cookie: { maxAge: 1 * 24 * 60 * 60 * 1000 },
     resave: false,
     saveUninitialized: false,
     store: new EXPRESS_MYSQL_SESSION(database)
@@ -82,7 +82,7 @@ MY_APP.use('/assets', EXPRESS.static(PATH.join(PUBLIC, 'assets')));
 MY_APP.listen(MY_APP.get('port'), () => {
     console.log('Server automagically working on port : ' + MY_APP.get('port'));
 });
-
+/*
 let win;
 
 function createWindow() {
@@ -111,4 +111,4 @@ app.on('activate', () => {
     if (win === null) {
         createWindow()
     }
-});
+});*/
