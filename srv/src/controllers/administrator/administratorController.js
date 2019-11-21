@@ -17,9 +17,9 @@ const INSERT = 'INSERT INTO ' + TABLE_USER + ' SET ?';
 const UPDATE = 'UPDATE ' + TABLE_USER + ' SET ? WHERE ' + FIELD_ID + ' = ?';
 const SOFT_DELETE = 'UPDATE ' + TABLE_USER + ' SET DeletedAt = ? WHERE ' + FIELD_ID + ' = ?';
 
-const TOTAL_ADMINISTRATORS = 'SELECT COUNT(' + FIELD_ID + ') as TotalAdministrators FROM ' + TABLE_USER + ' WHERE Role = "' + ROLE_ADMIN + '"';
-const TOTAL_LECTURERS = 'SELECT COUNT(' + FIELD_ID + ') as TotalLecturers FROM ' + TABLE_USER + ' WHERE Role = "' + ROLE_LECTURER + '"';
-const TOTAL_STUDENTS = 'SELECT COUNT(' + FIELD_ID + ') as TotalStudents FROM ' + TABLE_USER + ' WHERE Role = "' + ROLE_STUDENT + '"';
+const TOTAL_ADMINISTRATORS = 'SELECT COUNT(' + FIELD_ID + ') as TotalAdministrators FROM ' + TABLE_USER + ' WHERE Role = "' + ROLE_ADMIN + '" AND DeletedAt IS NULL';
+const TOTAL_LECTURERS = 'SELECT COUNT(' + FIELD_ID + ') as TotalLecturers FROM ' + TABLE_USER + ' WHERE Role = "' + ROLE_LECTURER + '" AND DeletedAt IS NULL';
+const TOTAL_STUDENTS = 'SELECT COUNT(' + FIELD_ID + ') as TotalStudents FROM ' + TABLE_USER + ' WHERE Role = "' + ROLE_STUDENT + '" AND DeletedAt IS NULL';
 
 const PARCHMENT_READY = 'SELECT ' + FIELD_ID + ' AS parchmentReadyTotal FROM ' + TABLE_STUDENT_GRADE + ' GROUP BY ' + FIELD_ID + ' HAVING ROUND(((AVG(Grade = "PA")) * 100),2) >= 100';
 const PARCHMENT_NOT_READY = 'SELECT ' + FIELD_ID + ' AS parchmentNotReadyTotal FROM ' + TABLE_STUDENT_GRADE + ' GROUP BY ' + FIELD_ID + ' HAVING ROUND(((AVG(Grade = "PA")) * 100),2) < 100';
