@@ -84,7 +84,7 @@ MY_APP.use('/assets', EXPRESS.static(PATH.join(PUBLIC, 'assets')));
 MY_APP.listen(MY_APP.get('port'), () => {
     console.log('Server automagically working on port : ' + MY_APP.get('port'));
 });
-/*
+
 let win;
 
 function createWindow() {
@@ -113,7 +113,7 @@ app.on('activate', () => {
     if (win === null) {
         createWindow()
     }
-});*/
+});
 
 MY_APP.get('*', function(req, res) {
     res.redirect('/');

@@ -44,11 +44,19 @@
                         </nav>
 
                         {{#if crns}}
-                        <table
+                        <table id="datatable-lecturer-details"
                             class="table dataTable datatable-button-html5-columns-details collapsed display compact nowrap table-striped table-hover">
                             <caption>Details</caption>
                             <thead class="thead-dark">
                                 <tr>
+                                    <th>CRN</th>
+                                    <th>Tafe Comp Code</th>
+                                    <th>Term</th>
+                                    <th>Year</th>
+                                    <th>Grade</th>
+                                    <th>Grade Date</th>
+                                </tr>
+                                <tr class="hide-when-small">
                                     <th>CRN</th>
                                     <th>Tafe Comp Code</th>
                                     <th>Term</th>

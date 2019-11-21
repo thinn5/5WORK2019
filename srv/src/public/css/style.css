@@ -1306,3 +1306,9 @@ p {
 .buttons-html5 {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 1600px) {
+    .hide-when-small {
+      display: none;
+    }
+  }

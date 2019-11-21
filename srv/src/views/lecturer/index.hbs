@@ -52,7 +52,7 @@
                                     <th>Parchment Request</th>
                                     <th>Info</th>
                                 </tr>
-                                <tr>
+                                <tr class="hide-when-small">
                                     <th>ID</th>
                                     <th>Given Name</th>
                                     <th>Last Name</th>
@@ -74,12 +74,9 @@
                                     <td>{{QualCode}}</td>
                                     <td>{{QualName}}</td>
                                     <td>
-                                        <div class="progress" style="height: 36px;">
-                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
-                                                role="progressbar" style="width: {{Average}}%;"
-                                                aria-valuenow="{{Average}}" aria-valuemin="0" aria-valuemax="100">
-                                                {{Average}}%</div>
-                                        </div>
+                                    <span class="progress progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                                role="progressbar" style="width: {{Average}}%; height: 36px;"
+                                                aria-valuenow=`"{{Average}}" aria-valuemin="0" aria-valuemax="100">{{Average}}%</span>
                                     </td>
                                     {{#ifEquals ParchmentRequest 1}}
                                     <td><span class="badge badge-success">Requested</span></td>
