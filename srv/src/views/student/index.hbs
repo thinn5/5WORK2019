@@ -83,7 +83,7 @@
                                         <div class="get-started-button wow bounceInDown" data-wow-delay="1.8s">
                                             <a href="#" data-toggle="modal" data-target="#requestparchment">
                                                 <span class="icon-bookmarks" style="color:yellow;"></span>
-                                                Request your Parchment {{ParchmentRequest}}
+                                                Request your Parchment
                                             </a>
                                         </div>
                                     </div>
@@ -824,3 +824,34 @@
     </div>
 </footer>
 <!-- ***** Footer Area Start ***** -->
+
+
+<script>  
+    setTimeout(function(){        
+          $(document).ready(function () {
+              $(function () {
+                  toastr["success"]("Your parchment is being processed. Ask Kym");
+                  
+                  toastr.options = {
+                      "closeButton": false,
+                      "debug": false,
+                      "newestOnTop": false,
+                      "progressBar": false,
+                       "positionClass": "toast-top-right",
+                      "preventDuplicates": false,
+                      "onclick": null,
+                      "showDuration": "3000",
+                      "hideDuration": "1000",
+                      "timeOut": "5000",
+                      "extendedTimeOut": "1000",
+                      "showEasing": "swing",
+                      "hideEasing": "linear",
+                      "showMethod": "fadeIn",
+                      "hideMethod": "fadeOut"
+                      };
+                });
+            });
+       
+    }, 2000);
+ 
+</script>

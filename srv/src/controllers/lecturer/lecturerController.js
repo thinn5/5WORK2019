@@ -22,16 +22,19 @@ const LIST = 'SELECT DISTINCT ' + FIELDS + ' FROM ' + TABLE_USER +
 const FIELDS_CRN = 'UserID, CRN, TafeCompCode, TermCode, TermYear, Grade, UNIX_TIMESTAMP(GradeDate) AS GradeDate';
 const LIST_CRN = 'SELECT ' + FIELDS_CRN + ' FROM ' + TABLE_STUDENT_GRADE + ' WHERE ' + FIELD_ID + ' = ?';
 
-CONTROLLER.index = async(req, res) => {
+const COUNT_PARCHMENT_REQUESTS = 'SELECT COUNT(*) AS parchmentRequestFromDB FROM ' + TABLE_USER + ' WHERE ParchmentRequest = 1 ';
+
+CONTROLLER.index = async (req, res) => {
     const students = await POOL.query(LIST);
+    const totalPRCount = await POOL.query(COUNT_PARCHMENT_REQUESTS);    
     res.locals.metaTags = {
         title: "Main",
         description: "Main"
     };
-    res.render(PATH.join(VIEW, 'index'), { students: students, layout: LAYOUT });
+    res.render(PATH.join(VIEW, 'index'), { students: students, totalPRCount: totalPRCount, layout: LAYOUT });
 };
 
-CONTROLLER.viewDetails = async(req, res) => {
+CONTROLLER.viewDetails = async (req, res) => {
     const crns = await POOL.query(LIST_CRN, req.params.id);
     res.locals.metaTags = {
         title: "Details",

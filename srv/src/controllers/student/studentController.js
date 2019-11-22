@@ -28,7 +28,7 @@ const LIST = 'SELECT ' + FIELDS + ' FROM ' + TABLE_USER +
 
 const PARCHMENT_REQUEST = 'UPDATE ' + TABLE_USER + ' SET ParchmentRequest = 1 WHERE ' + FIELD_ID + ' = ?';
 
-CONTROLLER.index = async(req, res) => {
+CONTROLLER.index = async (req, res) => {
     const myUserId = req.user.UserID;
     const crns = await POOL.query(LIST_CRN, [myUserId, myUserId]);
     const progress = await POOL.query(LIST_PROGRESS, [myUserId, myUserId]);
@@ -40,7 +40,7 @@ CONTROLLER.index = async(req, res) => {
     res.render(PATH.join(VIEW, 'index'), { crns: crns, progress: progress, studentData: studentData, layout: LAYOUT });
 };
 
-CONTROLLER.viewDetails = async(req, res) => {
+CONTROLLER.viewDetails = async (req, res) => {
     const crns = await POOL.query(LIST_CRN, req.params.id);
     res.locals.metaTags = {
         title: "Details",
@@ -49,10 +49,19 @@ CONTROLLER.viewDetails = async(req, res) => {
     res.render(PATH.join(VIEW, 'viewDetails'), { crns: crns, layout: LAYOUT });
 };
 
-CONTROLLER.parchmentRequest = async(req, res) => {
+CONTROLLER.parchmentRequest = async (req, res) => {
     const myUserId = req.user.UserID;
+    const crns = await POOL.query(LIST_CRN, [myUserId, myUserId]);
+    const progress = await POOL.query(LIST_PROGRESS, [myUserId, myUserId]);
+    const studentData = await POOL.query(LIST, myUserId);
+
     await POOL.query(PARCHMENT_REQUEST, myUserId);
-    res.redirect('/students/index');
+    const showAlert = 1;
+    res.locals.metaTags = {
+        title: "Main",
+        description: "Main"
+    };
+    res.render(PATH.join(VIEW, 'index'), { crns: crns, progress: progress, studentData: studentData, showAlert: showAlert, layout: LAYOUT });
 };
 
 module.exports = CONTROLLER;

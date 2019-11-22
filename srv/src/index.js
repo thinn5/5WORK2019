@@ -1,6 +1,12 @@
 var electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const Menu = electron.Menu;
+
+const shell = require('electron').shell
+if (require('electron-squirrel-startup')) {
+    app.quit();
+}
 
 const EXPRESS = require('express');
 const PATH = require('path');
@@ -96,12 +102,54 @@ function createWindow() {
             nodeIntegration: true
         }
     });
+    win.maximize()
     win.loadURL('http://localhost:4000');
-    //win.webContents.openDevTools();
+    win.webContents.openDevTools();
     win.on('closed', () => {
         win = null
-    })
-}
+    });
+
+    var menu = Menu.buildFromTemplate([
+        {
+            label: 'Menu',
+            submenu: [              
+                { type: 'separator' },
+                {
+                    label: 'Exit',
+                    click() {
+                        app.quit()
+                    }
+                }
+            ]
+        },
+        {
+            label: 'Info',
+            submenu: [
+                {
+                    label: 'Source Code',
+                    click() {
+                        shell.openExternal('https://github.com/thinn5/5WORK2019')
+                    }
+                },
+                { type: 'separator' },
+                {
+                    label: 'About us',
+                    click() {
+                        const modalPath = (`file://${__dirname}/about-us.html`)
+                        let win = new BrowserWindow({ frame: true, alwaysOnTop: true, width: 815, height: 410 })
+                        win.setMenu(null)
+                        win.setResizable(false)
+                        win.on('close', function () { win = null })
+                        win.loadURL(modalPath)
+                        win.show()
+                    }
+                }
+            ]
+        }
+    ])
+    Menu.setApplicationMenu(menu);
+};
+
 app.on('ready', createWindow);
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
@@ -115,6 +163,6 @@ app.on('activate', () => {
     }
 });
 
-MY_APP.get('*', function(req, res) {
+MY_APP.get('*', function (req, res) {
     res.redirect('/');
 });

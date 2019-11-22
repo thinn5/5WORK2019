@@ -1,3 +1,11 @@
+<script src="/js/lecturer/jquery-2.2.4.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" type="text/css">
+
+
+
+
+
 <!-- ***** Welcome Area Start ***** -->
 <section class="wellcome_area clearfix" id="home">
     <div class="container h-100">
@@ -74,9 +82,11 @@
                                     <td>{{QualCode}}</td>
                                     <td>{{QualName}}</td>
                                     <td>
-                                    <span class="progress progress-bar bg-success progress-bar-striped progress-bar-animated"
-                                                role="progressbar" style="width: {{Average}}%; height: 36px;"
-                                                aria-valuenow=`"{{Average}}" aria-valuemin="0" aria-valuemax="100">{{Average}}%</span>
+                                        <span
+                                            class="progress progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                            role="progressbar" style="width: {{Average}}%; height: 36px;"
+                                            aria-valuenow=`"{{Average}}" aria-valuemin="0"
+                                            aria-valuemax="100">{{Average}}%</span>
                                     </td>
                                     {{#ifEquals ParchmentRequest 1}}
                                     <td><span class="badge badge-success">Requested</span></td>
@@ -735,3 +745,42 @@
     </div>
 </footer>
 <!-- ***** Footer Area Start ***** -->
+
+<script>
+    setTimeout(function(){ 
+
+if ({{ user.UserID }} == 000011369 || {{ user.UserID }} == 000013514) {
+      var parchmentRequested = 0;
+      if ( {{#if totalPRCount}} {{#each totalPRCount }} {{ parchmentRequestFromDB }} {{/each}}{{/if }} != 0) {
+          parchmentRequested = {{#if totalPRCount}} {{#each totalPRCount }} {{ parchmentRequestFromDB }} {{/each}}{{/if }};
+          
+          $(document).ready(function () {
+              $(function () {
+                  toastr["success"]("You have " + parchmentRequested + " parchment request(s) pending.");
+                  
+                  toastr.options = {
+                      "closeButton": false,
+                      "debug": false,
+                      "newestOnTop": false,
+                      "progressBar": false,
+                       "positionClass": "toast-top-right",
+                      "preventDuplicates": false,
+                      "onclick": null,
+                      "showDuration": "3000",
+                      "hideDuration": "1000",
+                      "timeOut": "5000",
+                      "extendedTimeOut": "1000",
+                      "showEasing": "swing",
+                      "hideEasing": "linear",
+                      "showMethod": "fadeIn",
+                      "hideMethod": "fadeOut"
+                      };
+                });
+            });
+        };
+    }
+
+
+     }, 1000);
+    
+</script>
