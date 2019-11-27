@@ -1,0 +1,25 @@
+1. Project Focus Section
+	1.2/1.4 - Attach the email from Dale if possible
+
+2. Detailed User Requirements Section
+	2.2 - Get SRS Signed off by CLIENT.
+	2.4 - Review of Requirements of an existing project.
+	2.5 - Get Use Cases and SRS Signed Off by TECHNICAL LEAD.
+
+3. Analysis & Design Focus
+	3.1 - Video walk-through about class diagram and a sequence diagram.
+	3.2 - Ngo to upload the class diagram. --------------------------------------------
+	3.3 - Ngo to upload the sequence diagram. -----------------------------------------
+	3.4 - Review of existing project design.
+	3.5 - SAD with sign off.
+
+4. UI Focus Section
+	4.1 - Video walk-through initial design.
+	4.2 - Video walk-through final design.
+	4.3 - Evidence of sign off initial prototype.
+	4.4 - Evidence of sign off final prototype.
+
+5. Database Focus Section
+	5.1 - Video
+	5.2 - Ngo to upload the ERD. ---------------------------------------------------------
+	5.3 - Sign off.
