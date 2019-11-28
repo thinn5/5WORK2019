@@ -87,10 +87,10 @@ MY_APP.use('/img', EXPRESS.static(PATH.join(PUBLIC, 'img')));
 MY_APP.use('/assets', EXPRESS.static(PATH.join(PUBLIC, 'assets')));
 
 // Start server
-MY_APP.listen(MY_APP.get('port'), () => {
+var server = MY_APP.listen(MY_APP.get('port'), () => {
     console.log('Server automagically working on port : ' + MY_APP.get('port'));
 });
-
+/*
 let win;
 
 function createWindow() {
@@ -162,7 +162,10 @@ app.on('activate', () => {
         createWindow()
     }
 });
+*/
 
 MY_APP.get('*', function (req, res) {
     res.redirect('/');
 });
+
+module.exports = server
