@@ -1,0 +1,5 @@
+https://developers.google.com/speed/pagespeed/insights/
+
+https://validator.w3.org/nu/
+
+https://www.webpagetest.org/
